@@ -1,0 +1,342 @@
+---
+title: "hw1 rmarkdown"
+author: "Fang Wang"
+date: "2/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+# here,it's in the largedata file, then make a new homework1 folder: `largedata/hw1/`
+```{bash}
+cd largedata
+mkdir hw1
+cd hw1
+
+wgsim lambda.fa -e 0 -d 500 -N 5000 -1 100 -2 100 -r 0.01 \
+-R 0 -X 0 -S 1234567 -h l1.read1.fq l1.read2.fq
+```
+# Download Reference from EnsemblPlants
+Barley reference genome: https://plants.ensembl.org/Hordeum_vulgare/Info/Index
+
+# Then use `wget` to download the reference genome, use gunzip unzip it:
+```{bash}
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-46/fasta/hordeum_vulgare/dna/Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa.gz
+
+gunzip Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa.gz
+```
+# simulate 10 individals
+```{bash}
+for i in {1..10}
+do
+   wgsim Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa -e 0 -d 500 -N 50000 -1 100 -2 100 -r 0.1  -R 0 -X 0 l$i.read1.fq l$i.read2.fq
+done
+```
+#submit a slurm script for alignment of NGS reads
+```{bash}
+#!/bin/bash -l
+#SBATCH -D /common/baenziger/fangwang/agro932-lab
+#SBATCH -o /common/baenziger/fangwang/agro932-lab/slurm-log/hw1out.txt
+#SBATCH -e /common/baenziger/fangwang/agro932-lab/slurm-log/hw1err.txt
+#SBATCH -J hw1
+#SBATCH -t 1:00:00
+#SBATCH --mail-user=fwang11@huskers.unl.edu
+#SBATCH --mail-type=ALL
+
+set -e
+set -u
+
+module load bwa samtools
+cd largedata/hw1/
+
+# alignment
+for i in {1..10}; do bwa mem Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa l$i.read1.fq l$i.read2.fq | samtools view -bSh - > l$i.bam; $
+# sort
+for i in *.bam; do samtools sort $i -o sorted_$i; done
+# index them
+for i in sorted*.bam; do samtools index $i; done
+```
+#submit the slurm job on HCC
+```{bash}
+sbatch hw1.sh
+squeue -u fangwang
+```
+
+#run angsd
+```{bash, eval=FALSE}
+# write the bam files to a txt file
+mkdir bam_files
+mv sorted*.bam bam_files
+cd bam_files
+ls sorted*.bam > bam.txt
+```
+ 
+#then to calculate theta
+```{bash}
+angsd -bam bam.txt -doSaf 1 -anc ../Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa -GL 1  -out out
+# use realSFS to calculate sfs
+/common/baenziger/fangwang/angsd/misc/realSFS out.saf.idx > out.sfs
+cp out.sfs outhw1.sfs
+cp outhw1.sfs ../../../cache/
+```
+
+
+
+
+```{bash}
+angsd -bam bam.txt -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa -GL 1
+/home/baenziger/fangwang/angsd/misc/thetaStat print out.thetas.idx > thetahw1.txt
+cp thetahw1.txt ../../../cache/
+```
+# first calculate per pop saf for each populatoin
+#make two txt file:pop1.txt and pop2.txt, pop1 includes individuals 1,2,5,9, pop2 includes individuals 3,4,6,7,8,10
+```{bash}
+angsd -b pop1.txt -anc ../Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa -out pop1 -dosaf 1 -gl 1
+angsd -b pop2.txt -anc ../Hordeum_vulgare.IBSC_v2.dna.chromosome.Mt.fa -out pop2 -dosaf 1 -gl 1
+# calculate the 2dsfs prior
+/home/baenziger/fangwang/angsd/misc/realSFS pop1.saf.idx pop2.saf.idx > pop1.pop2.ml
+# prepare the fst for easy window analysis etc
+/home/baenziger/fangwang/angsd/misc/realSFS fst index pop1.saf.idx pop2.saf.idx -sfs pop1.pop2.ml -fstout out
+# get the global estimate
+/home/baenziger/fangwang/angsd/misc/realSFS fst stats out.fst.idx 
+# below is not tested that much, but seems to work
+/home/baenziger/fangwang/angsd/misc/realSFS fst stats2 out.fst.idx -win 500 -step 100 > fst_win.txt
+cp fst_win.txt fst_win_hw1.txt
+cp fst_win_hw1.txt ../../../cache/
+```
+
+
+# Visualize the results, local R
+
+### barplot of SFS
+```{r}
+a<- scan(file = "/users/fwang11/Box/Courses/932 GWAS/hw1/outhw1.sfs")
+a<- a[-c(1,length(a))]
+a<- a/sum(a)
+barplot(a,names=1:length(a),main = 'SFS')
+```
+###histogram of theta values
+```{bash}
+t<-read.delim("/users/fwang11/Box/Courses/932 GWAS/hw1/thetashw1.txt",header = TRUE)
+head(t)
+hist(t$Pairwise)
+```
+### scatter plot of Fst value
+```{bash}
+fst<-read.table("/users/fwang11/Box/Courses/932 GWAS/hw1/fst_win_hw1.txt",skip = 1,header = FALSE)
+names(fst)[c(3,5)]<-c("midp","fst")
+head(fst)
+plot(fst$midp,fst$fst,xlab = "Physical position",ylab = "Fst",col="#5f9ea0", pch=16)
+```
+
+# General feature format (GFF) from EnsemblPlants
+```{bash}
+cd largedata/hw1/
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-46/gff3/hordeum_vulgare/Hordeum_vulgare.IBSC_v2.46.chromosome.Mt.gff3.gz
+gunzip Hordeum_vulgare.IBSC_v2.46.chromosome.Mt.gff3.gz
+```
+
+```{r}
+# install.packages("data.table")
+library("data.table")
+
+## grep -v means select lines that not matching any of the specified patterns
+gff <- fread(cmd='grep -v "#" largedata/hw1/Hordeum_vulgare.IBSC_v2.46.chromosome.Mt.gff3',header=FALSE, data.table=FALSE)
+head(gff)
+```
+V1                                                V2         V3  V4     V5 V6
+1 Mt International Barley Genome Sequencing Consortium chromosome   1 525599  .
+2 Mt                                               ena       gene  85    441  .
+3 Mt                                               ena       mRNA  85    441  .
+4 Mt                                               ena       exon  85    441  .
+5 Mt                                               ena        CDS  85    441  .
+6 Mt                                               ena pseudogene 490    530  .
+  V7 V8
+1  .  .
+2  +  .
+3  +  .
+4  +  .
+5  +  0
+6  +  .
+                                                                                                                                                V9
+1                                                                                               ID=chromosome:Mt;Alias=AP017301.1;Is_circular=true
+2 ID=gene:EPlHVUG00000039890;Name=nad3_1;biotype=protein_coding;description=NADH dehydrogenase subunit 3;gene_id=EPlHVUG00000039890;logic_name=ena
+3                                ID=transcript:BAV58127;Parent=gene:EPlHVUG00000039890;Name=nad3_1-1;biotype=protein_coding;transcript_id=BAV58127
+4                          Parent=transcript:BAV58127;Name=BAV58127-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58127-1;rank=1
+5                                                                                   ID=CDS:BAV58127;Parent=transcript:BAV58127;protein_id=BAV58127
+6                                             ID=gene:EPlHVUG00000039854;Name=rps3a_p;biotype=pseudogene;gene_id=EPlHVUG00000039854;logic_name=ena
+
+
+```{r}
+names(gff) <- c("seq", "source", "feature", "start", "end", "score", "strand", "phase")
+table(gff$feature)
+```
+     biological_region                    CDS             chromosome
+                    34                     41                      1
+                  exon                   gene                lnc_RNA
+                   103                     32                      8
+                  mRNA             ncRNA_gene             pseudogene
+                    32                     48                     14
+pseudogenic_transcript                   rRNA                   tRNA
+                    14                      8                     32
+
+### Get genes and upstream and downstream 5kb regions
+```{r}
+g <- subset(gff, feature %in% "gene")
+g$geneid <- gsub(".*gene:|;biotype.*", "", g$att)
+
+### + strand
+gp <- subset(g, strand %in% "+") 
+# nrow(gp) 75
+
+### get the 5k upstream of the + strand gene model
+gp_up <- gp
+gp_up$end <- gp_up$start - 1
+gp_up$start <- gp_up$end - 5000 
+
+### get the 5k downstream of the + strand gene model
+gp_down <- gp
+gp_down$start <- gp_down$end + 1
+gp_down$end <- gp_down$start + 5000 
+```
+
+### Get genes and upstream and downstream 5kb regions
+
+```{r}
+g <- subset(gff, feature %in% "gene")
+g$geneid <- gsub(".*gene:|;biotype.*", "", g$att)
+
+### - strand
+gm <- subset(g, strand %in% "-") 
+
+### get the 5k upstream of the + strand gene model
+gm_up <- gm
+gm_up$start <- gm_up$end + 1
+gm_up$end <- gm_up$start + 5000 
+
+### get the 5k downstream of the + strand gene model
+gm_down <- gm
+gm_down$end <- gm_down$start - 1
+gm_down$start <- gm_down$end - 5000 
+
+gup <- rbind(gp_up, gm_up)
+fwrite(gup, "mt_gene_up5k.txt", sep="\t", row.names = FALSE, quote=FALSE)
+
+gdown <- rbind(gp_down, gm_down)
+fwrite(gdown, "mt_gene_down5k.txt", sep="\t", row.names = FALSE, quote=FALSE)
+```
+
+```{r}
+### - strand
+gm <- subset(g, strand %in% "-") 
+dim(gm)
+#[1]  5 10
+fwrite(g,"mt_gene.txt", sep="\t", row.names = FALSE, quote=FALSE)
+```
+
+## Intepret the theta results
+
+```{r}
+library("data.table")
+library("GenomicRanges")
+library("plyr")
+
+theta <- fread("thetashw1.txt", data.table=FALSE)
+names(theta)[1] <- "seq"
+
+up5k <- read.table("mt_gene_up5k.txt",sep="\t",header=TRUE)
+
+### define the subject file for theta values
+grc <- with(theta, GRanges(seqnames=seq, IRanges(start=Pos, end=Pos)))
+
+### define the query file for genomic feature
+grf <- with(up5k, GRanges(seqnames=seq, IRanges(start=start, end=end), geneid=geneid))
+    
+### find overlaps between the two
+tb <- findOverlaps(query=grf, subject=grc)
+tb <- as.matrix(tb)
+    
+out1 <- as.data.frame(grf[tb[,1]])
+out2 <- as.data.frame(grc[tb[,2]])
+### for each genomic feature, find the sites with non-missing data
+out <- cbind(out1, out2[, "start"]) 
+names(out)[ncol(out)] <- "pos"
+```
+
+## Intepret the theta results
+```{r}
+#define unique identifier and merge with the thetas
+out$uid <- paste(out$seqnames, out$pos, sep="_")
+theta$uid <- paste(theta$seq, theta$Pos, sep="_")
+
+df <- merge(out, theta[, c(-1, -2)], by="uid")
+
+# for each upstream 5k region, how many theta values
+mx <- ddply(df, .(geneid), summarise,
+            Pairwise = mean(Pairwise, na.rm=TRUE),
+            thetaH = mean(thetaH, na.rm=TRUE),
+            nsites = length(uid))
+
+```
+
+#build an `R` function:
+```{r}
+get_mean_theta <- function(gf_file="mt_gene_up5k.txt",sep="\t",header=TRUE){
+  # gf_file: gene feature file [chr, ="mt_gene_up5k.txt",sep="\t",header=TRUE]
+
+  theta <- fread("thetashw1.txt", data.table=FALSE)
+  names(theta)[1] <- "seq"
+
+  up5k <- read.table(gf_file, header=TRUE)
+
+  grc <- with(theta, GRanges(seqnames=seq, IRanges(start=Pos, end=Pos)))
+  grf <- with(up5k, GRanges(seqnames=seq, IRanges(start=start, end=end), geneid=geneid))
+  tb <- findOverlaps(query=grf, subject=grc)
+  tb <- as.matrix(tb)
+  out1 <- as.data.frame(grf[tb[,1]])
+  out2 <- as.data.frame(grc[tb[,2]])
+  out <- cbind(out1, out2[, "start"]) 
+  names(out)[ncol(out)] <- "pos"
+  out$uid <- paste(out$seqnames, out$pos, sep="_")
+  theta$uid <- paste(theta$seq, theta$Pos, sep="_")
+  df <- merge(out, theta[, c(-1, -2)], by="uid")
+  mx <- ddply(df, .(geneid), summarise,
+            Pairwise = mean(Pairwise, na.rm=TRUE),
+            thetaH = mean(thetaH, na.rm=TRUE),
+            nsites = length(uid))
+  return(mx)
+}
+```
+
+## Plot the results
+```{r}
+library("GenomicRanges")
+up5k <- get_mean_theta(gf_file="mt_gene_up5k.txt")
+down5k <- get_mean_theta(gf_file="mt_gene_down5k.txt")
+
+library("ggplot2")
+up5k$feature <- "up 5k"
+down5k$feature <- "down 5k"
+res <- rbind(up5k, down5k)
+myplot<-ggplot(res, aes(x=feature, y=Pairwise, fill=feature)) +
+   geom_violin(trim=FALSE)+
+   labs(title="Theta value", x="", y = "Log10 (theta)")+
+   geom_boxplot(width=0.1, fill="white")+
+   scale_fill_brewer(palette="Blues") +
+   theme_classic()
+
+#save the plot
+png("myplot.png")
+ggsave("myplot.png")
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
