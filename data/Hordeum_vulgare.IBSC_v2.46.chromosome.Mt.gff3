@@ -1,0 +1,469 @@
+##gff-version 3
+##sequence-region   Mt 1 525599
+#!genome-build International Barley Genome Sequencing Consortium IBSC v2
+#!genome-version IBSC_v2
+#!genome-date 2017-04
+#!genome-build-accession GCA_901482405.1
+#!genebuild-last-updated 2019-04
+Mt	International Barley Genome Sequencing Consortium	chromosome	1	525599	.	.	.	ID=chromosome:Mt;Alias=AP017301.1;Is_circular=true
+###
+Mt	ena	gene	85	441	.	+	.	ID=gene:EPlHVUG00000039890;Name=nad3_1;biotype=protein_coding;description=NADH dehydrogenase subunit 3;gene_id=EPlHVUG00000039890;logic_name=ena
+Mt	ena	mRNA	85	441	.	+	.	ID=transcript:BAV58127;Parent=gene:EPlHVUG00000039890;Name=nad3_1-1;biotype=protein_coding;transcript_id=BAV58127
+Mt	ena	exon	85	441	.	+	.	Parent=transcript:BAV58127;Name=BAV58127-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58127-1;rank=1
+Mt	ena	CDS	85	441	.	+	0	ID=CDS:BAV58127;Parent=transcript:BAV58127;protein_id=BAV58127
+###
+Mt	ena	pseudogene	490	530	.	+	.	ID=gene:EPlHVUG00000039854;Name=rps3a_p;biotype=pseudogene;gene_id=EPlHVUG00000039854;logic_name=ena
+Mt	ena	pseudogenic_transcript	490	530	.	+	.	ID=transcript:EPlHVUT00000248384;Parent=gene:EPlHVUG00000039854;Name=rps3a_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248384
+Mt	ena	exon	490	530	.	+	.	Parent=transcript:EPlHVUT00000248384;Name=EPlHVUE00000729388;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729388;rank=1
+###
+Mt	ena	gene	8198	8644	.	+	.	ID=gene:EPlHVUG00000039869;biotype=protein_coding;description=ribosomal protein small subunit 7;gene_id=EPlHVUG00000039869;logic_name=ena
+Mt	ena	mRNA	8198	8644	.	+	.	ID=transcript:BAV58128;Parent=gene:EPlHVUG00000039869;biotype=protein_coding;transcript_id=BAV58128
+Mt	ena	exon	8198	8644	.	+	.	Parent=transcript:BAV58128;Name=BAV58128-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58128-1;rank=1
+Mt	ena	CDS	8198	8644	.	+	0	ID=CDS:BAV58128;Parent=transcript:BAV58128;protein_id=BAV58128
+###
+Mt	ena_exon	biological_region	25381	25939	.	-	.	external_name=AP017301.1:exon:complement(25381..25939);logic_name=ena_exon
+Mt	ena_misc_feature	biological_region	25381	27701	.	-	.	external_name=C to U RNA editing is expected to create translational stop codon;logic_name=ena_misc_feature
+Mt	ena_exon	biological_region	26947	27701	.	-	.	external_name=AP017301.1:exon:complement(26947..27701);logic_name=ena_exon
+Mt	ena	gene	33388	33738	.	+	.	ID=gene:EPlHVUG00000039881;Name=rps13;biotype=protein_coding;description=ribosomal protein small subunit 13;gene_id=EPlHVUG00000039881;logic_name=ena
+Mt	ena	mRNA	33388	33738	.	+	.	ID=transcript:BAV58129;Parent=gene:EPlHVUG00000039881;Name=rps13-1;biotype=protein_coding;transcript_id=BAV58129
+Mt	ena	exon	33388	33738	.	+	.	Parent=transcript:BAV58129;Name=BAV58129-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58129-1;rank=1
+Mt	ena	CDS	33388	33738	.	+	0	ID=CDS:BAV58129;Parent=transcript:BAV58129;protein_id=BAV58129
+###
+Mt	ena_exon	biological_region	34688	34769	.	+	.	external_name=AP017301.1:exon:34688..34769;logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	36137	36189	.	+	.	ID=gene:ENSRNA050016919;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016919;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	36137	36189	.	+	.	ID=transcript:ENSRNA050016919-T1;Parent=gene:ENSRNA050016919;biotype=sense_intronic;transcript_id=ENSRNA050016919-T1
+Mt	Ensembl_Plants	exon	36137	36189	.	+	.	Parent=transcript:ENSRNA050016919-T1;Name=ENSRNA050016919-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016919-E1;rank=1
+###
+Mt	ena_exon	biological_region	36192	36383	.	+	.	external_name=AP017301.1:exon:36192..36383;logic_name=ena_exon
+Mt	ena	gene	49545	51125	.	+	.	ID=gene:EPlHVUG00000039856;Name=cox1;biotype=protein_coding;description=cytochrome c oxidase subunit 1;gene_id=EPlHVUG00000039856;logic_name=ena
+Mt	ena	mRNA	49545	51125	.	+	.	ID=transcript:BAV58130;Parent=gene:EPlHVUG00000039856;Name=cox1-1;biotype=protein_coding;transcript_id=BAV58130
+Mt	ena	exon	49545	51125	.	+	.	Parent=transcript:BAV58130;Name=BAV58130-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58130-1;rank=1
+Mt	ena	CDS	49545	51125	.	+	0	ID=CDS:BAV58130;Parent=transcript:BAV58130;protein_id=BAV58130
+###
+Mt	ena	pseudogene	66424	66488	.	-	.	ID=gene:EPlHVUG00000039889;Name=cox2a-2p;biotype=pseudogene;gene_id=EPlHVUG00000039889;logic_name=ena
+Mt	ena	pseudogenic_transcript	66424	66488	.	-	.	ID=transcript:EPlHVUT00000248395;Parent=gene:EPlHVUG00000039889;Name=cox2a-2p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248395
+Mt	ena	exon	66424	66488	.	-	.	Parent=transcript:EPlHVUT00000248395;Name=EPlHVUE00000729399;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729399;rank=1
+###
+Mt	ena_exon	biological_region	74594	74746	.	+	.	external_name=AP017301.1:exon:74594..74746;logic_name=ena_exon
+Mt	ena_exon	biological_region	75561	75952	.	+	.	external_name=AP017301.1:exon:75561..75952;logic_name=ena_exon
+Mt	ena	ncRNA_gene	78390	78462	.	-	.	ID=gene:EPlHVUG00000039929;Name=trnK_2;biotype=tRNA;gene_id=EPlHVUG00000039929;logic_name=ena_rna
+Mt	ena	tRNA	78390	78462	.	-	.	ID=transcript:EPlHVUT00000248431;Parent=gene:EPlHVUG00000039929;Name=trnK_2;biotype=tRNA;transcript_id=EPlHVUT00000248431
+Mt	ena	exon	78390	78462	.	-	.	Parent=transcript:EPlHVUT00000248431;Name=EPlHVUE00000729435;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729435;rank=1
+###
+Mt	ena	ncRNA_gene	81763	81834	.	-	.	ID=gene:EPlHVUG00000039917;Name=trnQ_1;biotype=tRNA;gene_id=EPlHVUG00000039917;logic_name=ena_rna
+Mt	ena	tRNA	81763	81834	.	-	.	ID=transcript:EPlHVUT00000248419;Parent=gene:EPlHVUG00000039917;Name=trnQ_1;biotype=tRNA;transcript_id=EPlHVUT00000248419
+Mt	ena	exon	81763	81834	.	-	.	Parent=transcript:EPlHVUT00000248419;Name=EPlHVUE00000729423;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729423;rank=1
+###
+Mt	ena	ncRNA_gene	85701	89167	.	+	.	ID=gene:EPlHVUG00000039931;Name=rrn26-1;biotype=rRNA;gene_id=EPlHVUG00000039931;logic_name=ena_rna
+Mt	ena	rRNA	85701	89167	.	+	.	ID=transcript:EPlHVUT00000248433;Parent=gene:EPlHVUG00000039931;Name=rrn26-1;biotype=rRNA;transcript_id=EPlHVUT00000248433
+Mt	ena	exon	85701	89167	.	+	.	Parent=transcript:EPlHVUT00000248433;Name=EPlHVUE00000729437;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729437;rank=1
+###
+Mt	ena	gene	101809	102927	.	+	.	ID=gene:EPlHVUG00000039852;Name=atp6;biotype=protein_coding;description=ATP synthase subunit 6;gene_id=EPlHVUG00000039852;logic_name=ena
+Mt	ena	mRNA	101809	102927	.	+	.	ID=transcript:BAV58132;Parent=gene:EPlHVUG00000039852;Name=atp6-1;biotype=protein_coding;transcript_id=BAV58132
+Mt	ena	exon	101809	102927	.	+	.	Parent=transcript:BAV58132;Name=BAV58132-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58132-1;rank=1
+Mt	ena	CDS	101809	102927	.	+	0	ID=CDS:BAV58132;Parent=transcript:BAV58132;protein_id=BAV58132
+###
+Mt	ena	gene	109866	110336	.	-	.	ID=gene:EPlHVUG00000039857;Name=atp8;biotype=protein_coding;description=ATP synthase subunit 8;gene_id=EPlHVUG00000039857;logic_name=ena
+Mt	ena	mRNA	109866	110336	.	-	.	ID=transcript:BAV58133;Parent=gene:EPlHVUG00000039857;Name=atp8-1;biotype=protein_coding;transcript_id=BAV58133
+Mt	ena	exon	109866	110336	.	-	.	Parent=transcript:BAV58133;Name=BAV58133-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58133-1;rank=1
+Mt	ena	CDS	109866	110336	.	-	0	ID=CDS:BAV58133;Parent=transcript:BAV58133;protein_id=BAV58133
+###
+Mt	ena	gene	123307	124029	.	+	.	ID=gene:EPlHVUG00000039865;Name=ccmC_1;biotype=protein_coding;description=cytochrome c biogenesis protein ccmC;gene_id=EPlHVUG00000039865;logic_name=ena
+Mt	ena	mRNA	123307	124029	.	+	.	ID=transcript:BAV58134;Parent=gene:EPlHVUG00000039865;Name=ccmC_1-1;biotype=protein_coding;transcript_id=BAV58134
+Mt	ena	exon	123307	124029	.	+	.	Parent=transcript:BAV58134;Name=BAV58134-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58134-1;rank=1
+Mt	ena	CDS	123307	124029	.	+	0	ID=CDS:BAV58134;Parent=transcript:BAV58134;protein_id=BAV58134
+###
+Mt	ena	ncRNA_gene	126961	128937	.	+	.	ID=gene:EPlHVUG00000039912;Name=rrn18-1;biotype=rRNA;gene_id=EPlHVUG00000039912;logic_name=ena_rna
+Mt	ena	rRNA	126961	128937	.	+	.	ID=transcript:EPlHVUT00000248414;Parent=gene:EPlHVUG00000039912;Name=rrn18-1;biotype=rRNA;transcript_id=EPlHVUT00000248414
+Mt	ena	exon	126961	128937	.	+	.	Parent=transcript:EPlHVUT00000248414;Name=EPlHVUE00000729418;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729418;rank=1
+###
+Mt	ena	ncRNA_gene	129052	129173	.	+	.	ID=gene:EPlHVUG00000039905;Name=rrn5_1;biotype=rRNA;gene_id=EPlHVUG00000039905;logic_name=ena_rna
+Mt	ena	rRNA	129052	129173	.	+	.	ID=transcript:EPlHVUT00000248407;Parent=gene:EPlHVUG00000039905;Name=rrn5_1;biotype=rRNA;transcript_id=EPlHVUT00000248407
+Mt	ena	exon	129052	129173	.	+	.	Parent=transcript:EPlHVUT00000248407;Name=EPlHVUE00000729411;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729411;rank=1
+###
+Mt	ena	ncRNA_gene	131833	131904	.	-	.	ID=gene:EPlHVUG00000039913;Name=trnR_1;biotype=tRNA;gene_id=EPlHVUG00000039913;logic_name=ena_rna
+Mt	ena	tRNA	131833	131904	.	-	.	ID=transcript:EPlHVUT00000248415;Parent=gene:EPlHVUG00000039913;Name=trnR_1;biotype=tRNA;transcript_id=EPlHVUT00000248415
+Mt	ena	exon	131833	131904	.	-	.	Parent=transcript:EPlHVUT00000248415;Name=EPlHVUE00000729419;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729419;rank=1
+###
+Mt	ena	ncRNA_gene	132054	132122	.	-	.	ID=gene:EPlHVUG00000039934;Name=trnfMcp_p1;biotype=tRNA;gene_id=EPlHVUG00000039934;logic_name=ena_rna
+Mt	ena	tRNA	132054	132122	.	-	.	ID=transcript:EPlHVUT00000248436;Parent=gene:EPlHVUG00000039934;Name=trnfMcp_p1;biotype=tRNA;transcript_id=EPlHVUT00000248436
+Mt	ena	exon	132054	132122	.	-	.	Parent=transcript:EPlHVUT00000248436;Name=EPlHVUE00000729440;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729440;rank=1
+###
+Mt	ena	gene	138673	139245	.	+	.	ID=gene:EPlHVUG00000039878;Name=rpl5_1;biotype=protein_coding;description=ribosomal protein large subunit 5;gene_id=EPlHVUG00000039878;logic_name=ena
+Mt	ena	mRNA	138673	139245	.	+	.	ID=transcript:BAV58135;Parent=gene:EPlHVUG00000039878;Name=rpl5_1-1;biotype=protein_coding;transcript_id=BAV58135
+Mt	ena	exon	138673	139245	.	+	.	Parent=transcript:BAV58135;Name=BAV58135-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58135-1;rank=1
+Mt	ena	CDS	138673	139245	.	+	0	ID=CDS:BAV58135;Parent=transcript:BAV58135;protein_id=BAV58135
+###
+Mt	ena	gene	140580	142268	.	+	.	ID=gene:EPlHVUG00000039882;Name=rps2_1;biotype=protein_coding;description=ribosomal protein small subunit 2;gene_id=EPlHVUG00000039882;logic_name=ena
+Mt	ena	mRNA	140580	142268	.	+	.	ID=transcript:BAV58136;Parent=gene:EPlHVUG00000039882;Name=rps2_1-1;biotype=protein_coding;transcript_id=BAV58136
+Mt	ena	exon	140580	142268	.	+	.	Parent=transcript:BAV58136;Name=BAV58136-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58136-1;rank=1
+Mt	ena	CDS	140580	142268	.	+	0	ID=CDS:BAV58136;Parent=transcript:BAV58136;protein_id=BAV58136
+###
+Mt	ena	ncRNA_gene	145953	146026	.	-	.	ID=gene:EPlHVUG00000039933;Name=trnfM2_1;biotype=tRNA;gene_id=EPlHVUG00000039933;logic_name=ena_rna
+Mt	ena	tRNA	145953	146026	.	-	.	ID=transcript:EPlHVUT00000248435;Parent=gene:EPlHVUG00000039933;Name=trnfM2_1;biotype=tRNA;transcript_id=EPlHVUT00000248435
+Mt	ena	exon	145953	146026	.	-	.	Parent=transcript:EPlHVUT00000248435;Name=EPlHVUE00000729439;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729439;rank=1
+###
+Mt	ena	ncRNA_gene	146520	146593	.	-	.	ID=gene:EPlHVUG00000039910;Name=trnD_2;biotype=tRNA;gene_id=EPlHVUG00000039910;logic_name=ena_rna
+Mt	ena	tRNA	146520	146593	.	-	.	ID=transcript:EPlHVUT00000248412;Parent=gene:EPlHVUG00000039910;Name=trnD_2;biotype=tRNA;transcript_id=EPlHVUT00000248412
+Mt	ena	exon	146520	146593	.	-	.	Parent=transcript:EPlHVUT00000248412;Name=EPlHVUE00000729416;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729416;rank=1
+###
+Mt	ena	pseudogene	147646	148040	.	-	.	ID=gene:EPlHVUG00000039886;Name=cox2b;biotype=pseudogene;gene_id=EPlHVUG00000039886;logic_name=ena
+Mt	ena	pseudogenic_transcript	147646	148040	.	-	.	ID=transcript:EPlHVUT00000248393;Parent=gene:EPlHVUG00000039886;Name=cox2b-1;biotype=pseudogene;transcript_id=EPlHVUT00000248393
+Mt	ena	exon	147646	148040	.	-	.	Parent=transcript:EPlHVUT00000248393;Name=EPlHVUE00000729397;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729397;rank=1
+###
+Mt	ena	ncRNA_gene	150374	150445	.	+	.	ID=gene:EPlHVUG00000039927;Name=trnV;biotype=tRNA;gene_id=EPlHVUG00000039927;logic_name=ena_rna
+Mt	ena	tRNA	150374	150445	.	+	.	ID=transcript:EPlHVUT00000248429;Parent=gene:EPlHVUG00000039927;Name=trnV;biotype=tRNA;transcript_id=EPlHVUT00000248429
+Mt	ena	exon	150374	150445	.	+	.	Parent=transcript:EPlHVUT00000248429;Name=EPlHVUE00000729433;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729433;rank=1
+###
+Mt	ena	ncRNA_gene	153920	154007	.	+	.	ID=gene:EPlHVUG00000039924;Name=trnS1;biotype=tRNA;gene_id=EPlHVUG00000039924;logic_name=ena_rna
+Mt	ena	tRNA	153920	154007	.	+	.	ID=transcript:EPlHVUT00000248426;Parent=gene:EPlHVUG00000039924;Name=trnS1;biotype=tRNA;transcript_id=EPlHVUT00000248426
+Mt	ena	exon	153920	154007	.	+	.	Parent=transcript:EPlHVUT00000248426;Name=EPlHVUE00000729430;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729430;rank=1
+###
+Mt	ena	gene	154520	154876	.	+	.	ID=gene:EPlHVUG00000039870;Name=nad3_2;biotype=protein_coding;description=NADH dehydrogenase subunit 3;gene_id=EPlHVUG00000039870;logic_name=ena
+Mt	ena	mRNA	154520	154876	.	+	.	ID=transcript:BAV58137;Parent=gene:EPlHVUG00000039870;Name=nad3_2-1;biotype=protein_coding;transcript_id=BAV58137
+Mt	ena	exon	154520	154876	.	+	.	Parent=transcript:BAV58137;Name=BAV58137-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58137-1;rank=1
+Mt	ena	CDS	154520	154876	.	+	0	ID=CDS:BAV58137;Parent=transcript:BAV58137;protein_id=BAV58137
+###
+Mt	ena	gene	154921	155298	.	+	.	ID=gene:EPlHVUG00000039891;Name=rps12;biotype=protein_coding;description=ribosomal protein small subunit 12;gene_id=EPlHVUG00000039891;logic_name=ena
+Mt	ena	mRNA	154921	155298	.	+	.	ID=transcript:BAV58138;Parent=gene:EPlHVUG00000039891;Name=rps12-1;biotype=protein_coding;transcript_id=BAV58138
+Mt	ena	exon	154921	155298	.	+	.	Parent=transcript:BAV58138;Name=BAV58138-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58138-1;rank=1
+Mt	ena	CDS	154921	155298	.	+	0	ID=CDS:BAV58138;Parent=transcript:BAV58138;protein_id=BAV58138
+###
+Mt	ena	pseudogene	159955	160737	.	-	.	ID=gene:EPlHVUG00000039887;Name=cob_p;biotype=pseudogene;gene_id=EPlHVUG00000039887;logic_name=ena
+Mt	ena	pseudogenic_transcript	159955	160737	.	-	.	ID=transcript:EPlHVUT00000248394;Parent=gene:EPlHVUG00000039887;Name=cob_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248394
+Mt	ena	exon	159955	160737	.	-	.	Parent=transcript:EPlHVUT00000248394;Name=EPlHVUE00000729398;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729398;rank=1
+###
+Mt	ena	pseudogene	161041	161146	.	-	.	ID=gene:EPlHVUG00000039872;Name=nad9_p;biotype=pseudogene;gene_id=EPlHVUG00000039872;logic_name=ena
+Mt	ena	pseudogenic_transcript	161041	161146	.	-	.	ID=transcript:EPlHVUT00000248389;Parent=gene:EPlHVUG00000039872;Name=nad9_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248389
+Mt	ena	exon	161041	161146	.	-	.	Parent=transcript:EPlHVUT00000248389;Name=EPlHVUE00000729393;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729393;rank=1
+###
+Mt	ena	ncRNA_gene	192906	192976	.	-	.	ID=gene:EPlHVUG00000039898;Name=trnC;biotype=tRNA;gene_id=EPlHVUG00000039898;logic_name=ena_rna
+Mt	ena	tRNA	192906	192976	.	-	.	ID=transcript:EPlHVUT00000248400;Parent=gene:EPlHVUG00000039898;Name=trnC;biotype=tRNA;transcript_id=EPlHVUT00000248400
+Mt	ena	exon	192906	192976	.	-	.	Parent=transcript:EPlHVUT00000248400;Name=EPlHVUE00000729404;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729404;rank=1
+###
+Mt	ena_exon	biological_region	196402	196475	.	+	.	external_name=AP017301.1:exon:196402..196475;logic_name=ena_exon
+Mt	ena	gene	196402	199829	.	+	.	ID=gene:EPlHVUG00000039875;biotype=protein_coding;description=ribosomal protein small subunit 3;gene_id=EPlHVUG00000039875;logic_name=ena
+Mt	ena	mRNA	196402	199829	.	+	.	ID=transcript:BAV58139;Parent=gene:EPlHVUG00000039875;biotype=protein_coding;transcript_id=BAV58139
+Mt	ena	exon	196402	196475	.	+	.	Parent=transcript:BAV58139;Name=BAV58139-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=BAV58139-1;rank=1
+Mt	ena	CDS	196402	196475	.	+	0	ID=CDS:BAV58139;Parent=transcript:BAV58139;protein_id=BAV58139
+Mt	ena	exon	198218	199829	.	+	.	Parent=transcript:BAV58139;Name=BAV58139-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=BAV58139-2;rank=2
+Mt	ena	CDS	198218	199829	.	+	1	ID=CDS:BAV58139;Parent=transcript:BAV58139;protein_id=BAV58139
+###
+Mt	Ensembl_Plants	ncRNA_gene	198087	198217	.	+	.	ID=gene:ENSRNA050016922;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016922;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	198087	198217	.	+	.	ID=transcript:ENSRNA050016922-T1;Parent=gene:ENSRNA050016922;biotype=sense_intronic;transcript_id=ENSRNA050016922-T1
+Mt	Ensembl_Plants	exon	198087	198217	.	+	.	Parent=transcript:ENSRNA050016922-T1;Name=ENSRNA050016922-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016922-E1;rank=1
+###
+Mt	ena_exon	biological_region	198218	199829	.	+	.	external_name=AP017301.1:exon:198218..199829;logic_name=ena_exon
+Mt	ena	gene	199678	200235	.	+	.	ID=gene:EPlHVUG00000039888;biotype=protein_coding;description=ribosomal protein large subunit 16;gene_id=EPlHVUG00000039888;logic_name=ena
+Mt	ena	mRNA	199678	200235	.	+	.	ID=transcript:BAV58140;Parent=gene:EPlHVUG00000039888;biotype=protein_coding;transcript_id=BAV58140
+Mt	ena	exon	199678	200235	.	+	.	Parent=transcript:BAV58140;Name=BAV58140-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58140-1;rank=1
+Mt	ena	CDS	199678	200235	.	+	0	ID=CDS:BAV58140;Parent=transcript:BAV58140;protein_id=BAV58140
+###
+Mt	ena	gene	202936	204087	.	+	.	ID=gene:EPlHVUG00000039883;biotype=protein_coding;description=ribosomal protein small subunit 4;gene_id=EPlHVUG00000039883;logic_name=ena
+Mt	ena	mRNA	202936	204087	.	+	.	ID=transcript:BAV58141;Parent=gene:EPlHVUG00000039883;Name=rps4-1;biotype=protein_coding;transcript_id=BAV58141
+Mt	ena	exon	202936	204087	.	+	.	Parent=transcript:BAV58141;Name=BAV58141-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58141-1;rank=1
+Mt	ena	CDS	202936	204087	.	+	0	ID=CDS:BAV58141;Parent=transcript:BAV58141;protein_id=BAV58141
+###
+Mt	ena	pseudogene	203406	203530	.	+	.	ID=gene:EPlHVUG00000039862;Name=rps4_1p;biotype=pseudogene;gene_id=EPlHVUG00000039862;logic_name=ena
+Mt	ena	pseudogenic_transcript	203406	203530	.	+	.	ID=transcript:EPlHVUT00000248386;Parent=gene:EPlHVUG00000039862;Name=rps4_1p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248386
+Mt	ena	exon	203406	203530	.	+	.	Parent=transcript:EPlHVUT00000248386;Name=EPlHVUE00000729390;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729390;rank=1
+###
+Mt	ena	pseudogene	203444	203569	.	+	.	ID=gene:EPlHVUG00000039866;Name=rps4_2p;biotype=pseudogene;gene_id=EPlHVUG00000039866;logic_name=ena
+Mt	ena	pseudogenic_transcript	203444	203569	.	+	.	ID=transcript:EPlHVUT00000248387;Parent=gene:EPlHVUG00000039866;Name=rps4_2p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248387
+Mt	ena	exon	203444	203569	.	+	.	Parent=transcript:EPlHVUT00000248387;Name=EPlHVUE00000729391;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729391;rank=1
+###
+Mt	ena	gene	214387	215184	.	+	.	ID=gene:EPlHVUG00000039863;Name=cox3;biotype=protein_coding;description=cytochrome c oxidase subunit 3;gene_id=EPlHVUG00000039863;logic_name=ena
+Mt	ena	mRNA	214387	215184	.	+	.	ID=transcript:BAV58142;Parent=gene:EPlHVUG00000039863;Name=cox3-1;biotype=protein_coding;transcript_id=BAV58142
+Mt	ena	exon	214387	215184	.	+	.	Parent=transcript:BAV58142;Name=BAV58142-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58142-1;rank=1
+Mt	ena	CDS	214387	215184	.	+	0	ID=CDS:BAV58142;Parent=transcript:BAV58142;protein_id=BAV58142
+###
+Mt	ena	pseudogene	215410	215529	.	+	.	ID=gene:EPlHVUG00000039859;Name=cox2a-1p_1;biotype=pseudogene;gene_id=EPlHVUG00000039859;logic_name=ena
+Mt	ena	pseudogenic_transcript	215410	215529	.	+	.	ID=transcript:EPlHVUT00000248385;Parent=gene:EPlHVUG00000039859;Name=cox2a-1p_1-1;biotype=pseudogene;transcript_id=EPlHVUT00000248385
+Mt	ena	exon	215410	215529	.	+	.	Parent=transcript:EPlHVUT00000248385;Name=EPlHVUE00000729389;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729389;rank=1
+###
+Mt	ena	ncRNA_gene	227094	227167	.	+	.	ID=gene:EPlHVUG00000039921;Name=trnfM1;biotype=tRNA;gene_id=EPlHVUG00000039921;logic_name=ena_rna
+Mt	ena	tRNA	227094	227167	.	+	.	ID=transcript:EPlHVUT00000248423;Parent=gene:EPlHVUG00000039921;Name=trnfM1;biotype=tRNA;transcript_id=EPlHVUT00000248423
+Mt	ena	exon	227094	227167	.	+	.	Parent=transcript:EPlHVUT00000248423;Name=EPlHVUE00000729427;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729427;rank=1
+###
+Mt	ena	pseudogene	239660	240011	.	+	.	ID=gene:EPlHVUG00000039876;Name=nad6_p;biotype=pseudogene;gene_id=EPlHVUG00000039876;logic_name=ena
+Mt	ena	pseudogenic_transcript	239660	240011	.	+	.	ID=transcript:EPlHVUT00000248390;Parent=gene:EPlHVUG00000039876;Name=nad6_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248390
+Mt	ena	exon	239660	240011	.	+	.	Parent=transcript:EPlHVUT00000248390;Name=EPlHVUE00000729394;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729394;rank=1
+###
+Mt	ena	gene	240852	242048	.	-	.	ID=gene:EPlHVUG00000039853;Name=cob;biotype=protein_coding;description=apocytochrome b;gene_id=EPlHVUG00000039853;logic_name=ena
+Mt	ena	mRNA	240852	242048	.	-	.	ID=transcript:BAV58143;Parent=gene:EPlHVUG00000039853;Name=cob-1;biotype=protein_coding;transcript_id=BAV58143
+Mt	ena	exon	240852	242048	.	-	.	Parent=transcript:BAV58143;Name=BAV58143-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58143-1;rank=1
+Mt	ena	CDS	240852	242048	.	-	0	ID=CDS:BAV58143;Parent=transcript:BAV58143;protein_id=BAV58143
+###
+Mt	ena_exon	biological_region	248780	249995	.	-	.	external_name=AP017301.1:exon:complement(248780..249995);logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	249997	250135	.	-	.	ID=gene:ENSRNA050016935;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016935;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	249997	250135	.	-	.	ID=transcript:ENSRNA050016935-T1;Parent=gene:ENSRNA050016935;biotype=sense_intronic;transcript_id=ENSRNA050016935-T1
+Mt	Ensembl_Plants	exon	249997	250135	.	-	.	Parent=transcript:ENSRNA050016935-T1;Name=ENSRNA050016935-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016935-E1;rank=1
+###
+Mt	ena_exon	biological_region	250858	251088	.	-	.	external_name=AP017301.1:exon:complement(250858..251088);logic_name=ena_exon
+Mt	ena	gene	260403	260981	.	+	.	ID=gene:EPlHVUG00000039851;Name=atp4;biotype=protein_coding;description=ATP synthase subunit 4;gene_id=EPlHVUG00000039851;logic_name=ena
+Mt	ena	mRNA	260403	260981	.	+	.	ID=transcript:BAV58145;Parent=gene:EPlHVUG00000039851;Name=atp4-1;biotype=protein_coding;transcript_id=BAV58145
+Mt	ena	exon	260403	260981	.	+	.	Parent=transcript:BAV58145;Name=BAV58145-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58145-1;rank=1
+Mt	ena	CDS	260403	260981	.	+	0	ID=CDS:BAV58145;Parent=transcript:BAV58145;protein_id=BAV58145
+###
+Mt	ena	ncRNA_gene	264212	264283	.	-	.	ID=gene:EPlHVUG00000039908;Name=trnQ_2;biotype=tRNA;gene_id=EPlHVUG00000039908;logic_name=ena_rna
+Mt	ena	tRNA	264212	264283	.	-	.	ID=transcript:EPlHVUT00000248410;Parent=gene:EPlHVUG00000039908;Name=trnQ_2;biotype=tRNA;transcript_id=EPlHVUT00000248410
+Mt	ena	exon	264212	264283	.	-	.	Parent=transcript:EPlHVUT00000248410;Name=EPlHVUE00000729414;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729414;rank=1
+###
+Mt	ena	ncRNA_gene	268052	268124	.	+	.	ID=gene:EPlHVUG00000039900;Name=trnM;biotype=tRNA;gene_id=EPlHVUG00000039900;logic_name=ena_rna
+Mt	ena	tRNA	268052	268124	.	+	.	ID=transcript:EPlHVUT00000248402;Parent=gene:EPlHVUG00000039900;Name=trnM;biotype=tRNA;transcript_id=EPlHVUT00000248402
+Mt	ena	exon	268052	268124	.	+	.	Parent=transcript:EPlHVUT00000248402;Name=EPlHVUE00000729406;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729406;rank=1
+###
+Mt	ena	ncRNA_gene	274081	274154	.	-	.	ID=gene:EPlHVUG00000039911;Name=trnI;biotype=tRNA;gene_id=EPlHVUG00000039911;logic_name=ena_rna
+Mt	ena	tRNA	274081	274154	.	-	.	ID=transcript:EPlHVUT00000248413;Parent=gene:EPlHVUG00000039911;Name=trnI;biotype=tRNA;transcript_id=EPlHVUT00000248413
+Mt	ena	exon	274081	274154	.	-	.	Parent=transcript:EPlHVUT00000248413;Name=EPlHVUE00000729417;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729417;rank=1
+###
+Mt	ena	ncRNA_gene	274858	274931	.	+	.	ID=gene:EPlHVUG00000039914;Name=trnD_1;biotype=tRNA;gene_id=EPlHVUG00000039914;logic_name=ena_rna
+Mt	ena	tRNA	274858	274931	.	+	.	ID=transcript:EPlHVUT00000248416;Parent=gene:EPlHVUG00000039914;Name=trnD_1;biotype=tRNA;transcript_id=EPlHVUT00000248416
+Mt	ena	exon	274858	274931	.	+	.	Parent=transcript:EPlHVUT00000248416;Name=EPlHVUE00000729420;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729420;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	275565	275636	.	-	.	ID=gene:ENSRNA049910928;Name=tRNA-Asn;biotype=tRNA;description=tRNA-Asn for anticodon GUU;gene_id=ENSRNA049910928;logic_name=trnascan_gene
+Mt	Ensembl_Plants	tRNA	275565	275636	.	-	.	ID=transcript:ENSRNA049910928-T1;Parent=gene:ENSRNA049910928;biotype=tRNA;transcript_id=ENSRNA049910928-T1
+Mt	Ensembl_Plants	exon	275565	275636	.	-	.	Parent=transcript:ENSRNA049910928-T1;Name=ENSRNA049910928-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA049910928-E1;rank=1
+###
+Mt	ena	ncRNA_gene	275565	275636	.	-	.	ID=gene:EPlHVUG00000039899;Name=trnN;biotype=tRNA;gene_id=EPlHVUG00000039899;logic_name=ena_rna
+Mt	ena	tRNA	275565	275636	.	-	.	ID=transcript:EPlHVUT00000248401;Parent=gene:EPlHVUG00000039899;Name=trnN;biotype=tRNA;transcript_id=EPlHVUT00000248401
+Mt	ena	exon	275565	275636	.	-	.	Parent=transcript:EPlHVUT00000248401;Name=EPlHVUE00000729405;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729405;rank=1
+###
+Mt	ena	ncRNA_gene	282805	282877	.	+	.	ID=gene:EPlHVUG00000039903;Name=trnK_1;biotype=tRNA;gene_id=EPlHVUG00000039903;logic_name=ena_rna
+Mt	ena	tRNA	282805	282877	.	+	.	ID=transcript:EPlHVUT00000248405;Parent=gene:EPlHVUG00000039903;Name=trnK_1;biotype=tRNA;transcript_id=EPlHVUT00000248405
+Mt	ena	exon	282805	282877	.	+	.	Parent=transcript:EPlHVUT00000248405;Name=EPlHVUE00000729409;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729409;rank=1
+###
+Mt	ena	ncRNA_gene	285721	285794	.	+	.	ID=gene:EPlHVUG00000039901;Name=trnW;biotype=tRNA;gene_id=EPlHVUG00000039901;logic_name=ena_rna
+Mt	ena	tRNA	285721	285794	.	+	.	ID=transcript:EPlHVUT00000248403;Parent=gene:EPlHVUG00000039901;Name=trnW;biotype=tRNA;transcript_id=EPlHVUT00000248403
+Mt	ena	exon	285721	285794	.	+	.	Parent=transcript:EPlHVUT00000248403;Name=EPlHVUE00000729407;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729407;rank=1
+###
+Mt	ena	gene	289188	289808	.	+	.	ID=gene:EPlHVUG00000039877;Name=ccmB;biotype=protein_coding;description=cytochrome c biogenesis protein ccmB;gene_id=EPlHVUG00000039877;logic_name=ena
+Mt	ena	mRNA	289188	289808	.	+	.	ID=transcript:BAV58146;Parent=gene:EPlHVUG00000039877;Name=ccmB-1;biotype=protein_coding;transcript_id=BAV58146
+Mt	ena	exon	289188	289808	.	+	.	Parent=transcript:BAV58146;Name=BAV58146-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58146-1;rank=1
+Mt	ena	CDS	289188	289808	.	+	0	ID=CDS:BAV58146;Parent=transcript:BAV58146;protein_id=BAV58146
+###
+Mt	ena	pseudogene	292894	293496	.	+	.	ID=gene:EPlHVUG00000039892;Name=ccmC-p;biotype=pseudogene;gene_id=EPlHVUG00000039892;logic_name=ena
+Mt	ena	pseudogenic_transcript	292894	293496	.	+	.	ID=transcript:EPlHVUT00000248396;Parent=gene:EPlHVUG00000039892;Name=ccmC-p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248396
+Mt	ena	exon	292894	293496	.	+	.	Parent=transcript:EPlHVUT00000248396;Name=EPlHVUE00000729400;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729400;rank=1
+###
+Mt	ena	ncRNA_gene	296428	298404	.	+	.	ID=gene:EPlHVUG00000039915;Name=rrn18-2;biotype=rRNA;gene_id=EPlHVUG00000039915;logic_name=ena_rna
+Mt	ena	rRNA	296428	298404	.	+	.	ID=transcript:EPlHVUT00000248417;Parent=gene:EPlHVUG00000039915;Name=rrn18-2;biotype=rRNA;transcript_id=EPlHVUT00000248417
+Mt	ena	exon	296428	298404	.	+	.	Parent=transcript:EPlHVUT00000248417;Name=EPlHVUE00000729421;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729421;rank=1
+###
+Mt	ena	ncRNA_gene	298519	298640	.	+	.	ID=gene:EPlHVUG00000039906;Name=rrn5_2;biotype=rRNA;gene_id=EPlHVUG00000039906;logic_name=ena_rna
+Mt	ena	rRNA	298519	298640	.	+	.	ID=transcript:EPlHVUT00000248408;Parent=gene:EPlHVUG00000039906;Name=rrn5_2;biotype=rRNA;transcript_id=EPlHVUT00000248408
+Mt	ena	exon	298519	298640	.	+	.	Parent=transcript:EPlHVUT00000248408;Name=EPlHVUE00000729412;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729412;rank=1
+###
+Mt	ena	ncRNA_gene	301300	301371	.	-	.	ID=gene:EPlHVUG00000039930;Name=trnR_2;biotype=tRNA;gene_id=EPlHVUG00000039930;logic_name=ena_rna
+Mt	ena	tRNA	301300	301371	.	-	.	ID=transcript:EPlHVUT00000248432;Parent=gene:EPlHVUG00000039930;Name=trnR_2;biotype=tRNA;transcript_id=EPlHVUT00000248432
+Mt	ena	exon	301300	301371	.	-	.	Parent=transcript:EPlHVUT00000248432;Name=EPlHVUE00000729436;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729436;rank=1
+###
+Mt	ena	ncRNA_gene	301521	301589	.	-	.	ID=gene:EPlHVUG00000039916;Name=trnfMcp_p2;biotype=tRNA;gene_id=EPlHVUG00000039916;logic_name=ena_rna
+Mt	ena	tRNA	301521	301589	.	-	.	ID=transcript:EPlHVUT00000248418;Parent=gene:EPlHVUG00000039916;Name=trnfMcp_p2;biotype=tRNA;transcript_id=EPlHVUT00000248418
+Mt	ena	exon	301521	301589	.	-	.	Parent=transcript:EPlHVUT00000248418;Name=EPlHVUE00000729422;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729422;rank=1
+###
+Mt	ena	gene	308140	308712	.	+	.	ID=gene:EPlHVUG00000039848;Name=rpl5_2;biotype=protein_coding;description=ribosomal protein large subunit 5;gene_id=EPlHVUG00000039848;logic_name=ena
+Mt	ena	mRNA	308140	308712	.	+	.	ID=transcript:BAV58147;Parent=gene:EPlHVUG00000039848;Name=rpl5_2-1;biotype=protein_coding;transcript_id=BAV58147
+Mt	ena	exon	308140	308712	.	+	.	Parent=transcript:BAV58147;Name=BAV58147-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58147-1;rank=1
+Mt	ena	CDS	308140	308712	.	+	0	ID=CDS:BAV58147;Parent=transcript:BAV58147;protein_id=BAV58147
+###
+Mt	ena	gene	310047	311735	.	+	.	ID=gene:EPlHVUG00000039858;Name=rps2_2;biotype=protein_coding;description=ribosomal protein small subunit 2;gene_id=EPlHVUG00000039858;logic_name=ena
+Mt	ena	mRNA	310047	311735	.	+	.	ID=transcript:BAV58148;Parent=gene:EPlHVUG00000039858;Name=rps2_2-1;biotype=protein_coding;transcript_id=BAV58148
+Mt	ena	exon	310047	311735	.	+	.	Parent=transcript:BAV58148;Name=BAV58148-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58148-1;rank=1
+Mt	ena	CDS	310047	311735	.	+	0	ID=CDS:BAV58148;Parent=transcript:BAV58148;protein_id=BAV58148
+###
+Mt	ena	ncRNA_gene	315420	315493	.	-	.	ID=gene:EPlHVUG00000039918;Name=trnfM2_2;biotype=tRNA;gene_id=EPlHVUG00000039918;logic_name=ena_rna
+Mt	ena	tRNA	315420	315493	.	-	.	ID=transcript:EPlHVUT00000248420;Parent=gene:EPlHVUG00000039918;Name=trnfM2_2;biotype=tRNA;transcript_id=EPlHVUT00000248420
+Mt	ena	exon	315420	315493	.	-	.	Parent=transcript:EPlHVUT00000248420;Name=EPlHVUE00000729424;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729424;rank=1
+###
+Mt	ena	ncRNA_gene	315987	316060	.	-	.	ID=gene:EPlHVUG00000039925;Name=trnD_3;biotype=tRNA;gene_id=EPlHVUG00000039925;logic_name=ena_rna
+Mt	ena	tRNA	315987	316060	.	-	.	ID=transcript:EPlHVUT00000248427;Parent=gene:EPlHVUG00000039925;Name=trnD_3;biotype=tRNA;transcript_id=EPlHVUT00000248427
+Mt	ena	exon	315987	316060	.	-	.	Parent=transcript:EPlHVUT00000248427;Name=EPlHVUE00000729431;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729431;rank=1
+###
+Mt	ena_exon	biological_region	317113	317507	.	-	.	external_name=AP017301.1:exon:complement(317113..317507);logic_name=ena_exon
+Mt	ena	gene	317113	319119	.	-	.	ID=gene:EPlHVUG00000039871;Name=cox2;biotype=protein_coding;description=cytochrome c oxidase subunit 2;gene_id=EPlHVUG00000039871;logic_name=ena
+Mt	ena	mRNA	317113	319119	.	-	.	ID=transcript:BAV58149;Parent=gene:EPlHVUG00000039871;Name=cox2-1;biotype=protein_coding;transcript_id=BAV58149
+Mt	ena	exon	317113	317507	.	-	.	Parent=transcript:BAV58149;Name=BAV58149-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=BAV58149-2;rank=2
+Mt	ena	CDS	317113	317507	.	-	2	ID=CDS:BAV58149;Parent=transcript:BAV58149;protein_id=BAV58149
+Mt	ena	exon	318732	319119	.	-	.	Parent=transcript:BAV58149;Name=BAV58149-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=BAV58149-1;rank=1
+Mt	ena	CDS	318732	319119	.	-	0	ID=CDS:BAV58149;Parent=transcript:BAV58149;protein_id=BAV58149
+###
+Mt	ena_exon	biological_region	318732	319119	.	-	.	external_name=AP017301.1:exon:complement(318732..319119);logic_name=ena_exon
+Mt	ena_exon	biological_region	332934	333121	.	-	.	external_name=AP017301.1:exon:complement(332934..333121);logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	333122	333218	.	-	.	ID=gene:ENSRNA050016926;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016926;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	333122	333218	.	-	.	ID=transcript:ENSRNA050016926-T1;Parent=gene:ENSRNA050016926;biotype=sense_intronic;transcript_id=ENSRNA050016926-T1
+Mt	Ensembl_Plants	exon	333122	333218	.	-	.	Parent=transcript:ENSRNA050016926-T1;Name=ENSRNA050016926-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016926-E1;rank=1
+###
+Mt	ena_exon	biological_region	334530	335102	.	-	.	external_name=AP017301.1:exon:complement(334530..335102);logic_name=ena_exon
+Mt	ena_exon	biological_region	337516	337676	.	-	.	external_name=AP017301.1:exon:complement(337516..337676);logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	337677	337765	.	-	.	ID=gene:ENSRNA050016930;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016930;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	337677	337765	.	-	.	ID=transcript:ENSRNA050016930-T1;Parent=gene:ENSRNA050016930;biotype=sense_intronic;transcript_id=ENSRNA050016930-T1
+Mt	Ensembl_Plants	exon	337677	337765	.	-	.	Parent=transcript:ENSRNA050016930-T1;Name=ENSRNA050016930-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016930-E1;rank=1
+###
+Mt	ena	ncRNA_gene	338313	338395	.	-	.	ID=gene:EPlHVUG00000039904;Name=trnY;biotype=tRNA;gene_id=EPlHVUG00000039904;logic_name=ena_rna
+Mt	ena	tRNA	338313	338395	.	-	.	ID=transcript:EPlHVUT00000248406;Parent=gene:EPlHVUG00000039904;Name=trnY;biotype=tRNA;transcript_id=EPlHVUT00000248406
+Mt	ena	exon	338313	338395	.	-	.	Parent=transcript:EPlHVUT00000248406;Name=EPlHVUE00000729410;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729410;rank=1
+###
+Mt	ena	gene	339139	339711	.	-	.	ID=gene:EPlHVUG00000039893;Name=nad9_2;biotype=protein_coding;description=NADH dehydrogenase subunit 9;gene_id=EPlHVUG00000039893;logic_name=ena
+Mt	ena	mRNA	339139	339711	.	-	.	ID=transcript:BAV58150;Parent=gene:EPlHVUG00000039893;Name=nad9_2-1;biotype=protein_coding;transcript_id=BAV58150
+Mt	ena	exon	339139	339711	.	-	.	Parent=transcript:BAV58150;Name=BAV58150-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58150-1;rank=1
+Mt	ena	CDS	339139	339711	.	-	0	ID=CDS:BAV58150;Parent=transcript:BAV58150;protein_id=BAV58150
+###
+Mt	ena_exon	biological_region	353158	353618	.	+	.	external_name=AP017301.1:exon:353158..353618;logic_name=ena_exon
+Mt	ena	gene	353158	360772	.	+	.	ID=gene:EPlHVUG00000039867;Name=nad4;biotype=protein_coding;description=NADH dehydrogenase subunit 4;gene_id=EPlHVUG00000039867;logic_name=ena
+Mt	ena	mRNA	353158	360772	.	+	.	ID=transcript:BAV58151;Parent=gene:EPlHVUG00000039867;Name=nad4-1;biotype=protein_coding;transcript_id=BAV58151
+Mt	ena	exon	353158	353618	.	+	.	Parent=transcript:BAV58151;Name=BAV58151-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=BAV58151-1;rank=1
+Mt	ena	CDS	353158	353618	.	+	0	ID=CDS:BAV58151;Parent=transcript:BAV58151;protein_id=BAV58151
+Mt	ena	exon	354646	355160	.	+	.	Parent=transcript:BAV58151;Name=BAV58151-2;constitutive=1;ensembl_end_phase=1;ensembl_phase=2;exon_id=BAV58151-2;rank=2
+Mt	ena	CDS	354646	355160	.	+	1	ID=CDS:BAV58151;Parent=transcript:BAV58151;protein_id=BAV58151
+Mt	ena	exon	358606	359028	.	+	.	Parent=transcript:BAV58151;Name=BAV58151-3;constitutive=1;ensembl_end_phase=1;ensembl_phase=1;exon_id=BAV58151-3;rank=3
+Mt	ena	CDS	358606	359028	.	+	2	ID=CDS:BAV58151;Parent=transcript:BAV58151;protein_id=BAV58151
+Mt	ena	exon	360684	360772	.	+	.	Parent=transcript:BAV58151;Name=BAV58151-4;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=BAV58151-4;rank=4
+Mt	ena	CDS	360684	360772	.	+	2	ID=CDS:BAV58151;Parent=transcript:BAV58151;protein_id=BAV58151
+###
+Mt	ena_exon	biological_region	354646	355160	.	+	.	external_name=AP017301.1:exon:354646..355160;logic_name=ena_exon
+Mt	ena_exon	biological_region	358606	359028	.	+	.	external_name=AP017301.1:exon:358606..359028;logic_name=ena_exon
+Mt	ena_exon	biological_region	360684	360772	.	+	.	external_name=AP017301.1:exon:360684..360772;logic_name=ena_exon
+Mt	ena	pseudogene	360969	361088	.	+	.	ID=gene:EPlHVUG00000039884;Name=cox2a-1p_2;biotype=pseudogene;gene_id=EPlHVUG00000039884;logic_name=ena
+Mt	ena	pseudogenic_transcript	360969	361088	.	+	.	ID=transcript:EPlHVUT00000248391;Parent=gene:EPlHVUG00000039884;Name=cox2a-1p_2-1;biotype=pseudogene;transcript_id=EPlHVUT00000248391
+Mt	ena	exon	360969	361088	.	+	.	Parent=transcript:EPlHVUT00000248391;Name=EPlHVUE00000729395;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729395;rank=1
+###
+Mt	ena	ncRNA_gene	376304	376375	.	-	.	ID=gene:EPlHVUG00000039909;Name=trnE;biotype=tRNA;gene_id=EPlHVUG00000039909;logic_name=ena_rna
+Mt	ena	tRNA	376304	376375	.	-	.	ID=transcript:EPlHVUT00000248411;Parent=gene:EPlHVUG00000039909;Name=trnE;biotype=tRNA;transcript_id=EPlHVUT00000248411
+Mt	ena	exon	376304	376375	.	-	.	Parent=transcript:EPlHVUT00000248411;Name=EPlHVUE00000729415;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729415;rank=1
+###
+Mt	ena	ncRNA_gene	383114	383200	.	+	.	ID=gene:EPlHVUG00000039932;Name=trnS2;biotype=tRNA;gene_id=EPlHVUG00000039932;logic_name=ena_rna
+Mt	ena	tRNA	383114	383200	.	+	.	ID=transcript:EPlHVUT00000248434;Parent=gene:EPlHVUG00000039932;Name=trnS2;biotype=tRNA;transcript_id=EPlHVUT00000248434
+Mt	ena	exon	383114	383200	.	+	.	Parent=transcript:EPlHVUT00000248434;Name=EPlHVUE00000729438;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729438;rank=1
+###
+Mt	ena	ncRNA_gene	383622	383694	.	+	.	ID=gene:EPlHVUG00000039926;Name=trnF;biotype=tRNA;gene_id=EPlHVUG00000039926;logic_name=ena_rna
+Mt	ena	tRNA	383622	383694	.	+	.	ID=transcript:EPlHVUT00000248428;Parent=gene:EPlHVUG00000039926;Name=trnF;biotype=tRNA;transcript_id=EPlHVUT00000248428
+Mt	ena	exon	383622	383694	.	+	.	Parent=transcript:EPlHVUT00000248428;Name=EPlHVUE00000729432;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729432;rank=1
+###
+Mt	ena_exon	biological_region	392273	392534	.	-	.	external_name=AP017301.1:exon:complement(392273..392534);logic_name=ena_exon
+Mt	ena	gene	392273	398279	.	-	.	ID=gene:EPlHVUG00000039879;Name=nad7;biotype=protein_coding;description=NADH dehydrogenase subunit 7;gene_id=EPlHVUG00000039879;logic_name=ena
+Mt	ena	mRNA	392273	398279	.	-	.	ID=transcript:BAV58152;Parent=gene:EPlHVUG00000039879;Name=nad7-1;biotype=protein_coding;transcript_id=BAV58152
+Mt	ena	exon	392273	392534	.	-	.	Parent=transcript:BAV58152;Name=BAV58152-5;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=BAV58152-5;rank=5
+Mt	ena	CDS	392273	392534	.	-	1	ID=CDS:BAV58152;Parent=transcript:BAV58152;protein_id=BAV58152
+Mt	ena	exon	394234	394477	.	-	.	Parent=transcript:BAV58152;Name=BAV58152-4;constitutive=1;ensembl_end_phase=2;ensembl_phase=1;exon_id=BAV58152-4;rank=4
+Mt	ena	CDS	394234	394477	.	-	2	ID=CDS:BAV58152;Parent=transcript:BAV58152;protein_id=BAV58152
+Mt	ena	exon	395476	395942	.	-	.	Parent=transcript:BAV58152;Name=BAV58152-3;constitutive=1;ensembl_end_phase=1;ensembl_phase=2;exon_id=BAV58152-3;rank=3
+Mt	ena	CDS	395476	395942	.	-	1	ID=CDS:BAV58152;Parent=transcript:BAV58152;protein_id=BAV58152
+Mt	ena	exon	397255	397323	.	-	.	Parent=transcript:BAV58152;Name=BAV58152-2;constitutive=1;ensembl_end_phase=2;ensembl_phase=2;exon_id=BAV58152-2;rank=2
+Mt	ena	CDS	397255	397323	.	-	1	ID=CDS:BAV58152;Parent=transcript:BAV58152;protein_id=BAV58152
+Mt	ena	exon	398137	398279	.	-	.	Parent=transcript:BAV58152;Name=BAV58152-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=BAV58152-1;rank=1
+Mt	ena	CDS	398137	398279	.	-	0	ID=CDS:BAV58152;Parent=transcript:BAV58152;protein_id=BAV58152
+###
+Mt	Ensembl_Plants	ncRNA_gene	392535	392668	.	-	.	ID=gene:ENSRNA050016928;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016928;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	392535	392668	.	-	.	ID=transcript:ENSRNA050016928-T1;Parent=gene:ENSRNA050016928;biotype=sense_intronic;transcript_id=ENSRNA050016928-T1
+Mt	Ensembl_Plants	exon	392535	392668	.	-	.	Parent=transcript:ENSRNA050016928-T1;Name=ENSRNA050016928-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016928-E1;rank=1
+###
+Mt	ena_exon	biological_region	394234	394477	.	-	.	external_name=AP017301.1:exon:complement(394234..394477);logic_name=ena_exon
+Mt	ena_exon	biological_region	395476	395942	.	-	.	external_name=AP017301.1:exon:complement(395476..395942);logic_name=ena_exon
+Mt	ena_exon	biological_region	397255	397323	.	-	.	external_name=AP017301.1:exon:complement(397255..397323);logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	397324	397393	.	-	.	ID=gene:ENSRNA050016924;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016924;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	397324	397393	.	-	.	ID=transcript:ENSRNA050016924-T1;Parent=gene:ENSRNA050016924;biotype=sense_intronic;transcript_id=ENSRNA050016924-T1
+Mt	Ensembl_Plants	exon	397324	397393	.	-	.	Parent=transcript:ENSRNA050016924-T1;Name=ENSRNA050016924-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016924-E1;rank=1
+###
+Mt	ena_exon	biological_region	398137	398279	.	-	.	external_name=AP017301.1:exon:complement(398137..398279);logic_name=ena_exon
+Mt	ena	ncRNA_gene	399528	399614	.	-	.	ID=gene:EPlHVUG00000039907;Name=trnS3;biotype=tRNA;gene_id=EPlHVUG00000039907;logic_name=ena_rna
+Mt	ena	tRNA	399528	399614	.	-	.	ID=transcript:EPlHVUT00000248409;Parent=gene:EPlHVUG00000039907;Name=trnS3;biotype=tRNA;transcript_id=EPlHVUT00000248409
+Mt	ena	exon	399528	399614	.	-	.	Parent=transcript:EPlHVUT00000248409;Name=EPlHVUE00000729413;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729413;rank=1
+###
+Mt	ena_exon	biological_region	401606	401755	.	-	.	external_name=AP017301.1:exon:complement(401606..401755);logic_name=ena_exon
+Mt	Ensembl_Plants	ncRNA_gene	401756	401817	.	-	.	ID=gene:ENSRNA050016932;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050016932;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	401756	401817	.	-	.	ID=transcript:ENSRNA050016932-T1;Parent=gene:ENSRNA050016932;biotype=sense_intronic;transcript_id=ENSRNA050016932-T1
+Mt	Ensembl_Plants	exon	401756	401817	.	-	.	Parent=transcript:ENSRNA050016932-T1;Name=ENSRNA050016932-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050016932-E1;rank=1
+###
+Mt	ena_exon	biological_region	402689	403083	.	-	.	external_name=AP017301.1:exon:complement(402689..403083);logic_name=ena_exon
+Mt	ena	pseudogene	410874	411042	.	+	.	ID=gene:EPlHVUG00000039895;Name=rpl2_p;biotype=pseudogene;gene_id=EPlHVUG00000039895;logic_name=ena
+Mt	ena	pseudogenic_transcript	410874	411042	.	+	.	ID=transcript:EPlHVUT00000248397;Parent=gene:EPlHVUG00000039895;Name=rpl2_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248397
+Mt	ena	exon	410874	411042	.	+	.	Parent=transcript:EPlHVUT00000248397;Name=EPlHVUE00000729401;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729401;rank=1
+###
+Mt	ena_exon	biological_region	412154	412212	.	+	.	external_name=AP017301.1:exon:412154..412212;logic_name=ena_exon
+Mt	ena	gene	413200	414138	.	+	.	ID=gene:EPlHVUG00000039849;Name=nad6;biotype=protein_coding;description=NADH dehydrogenase subunit 6;gene_id=EPlHVUG00000039849;logic_name=ena
+Mt	ena	mRNA	413200	414138	.	+	.	ID=transcript:BAV58153;Parent=gene:EPlHVUG00000039849;Name=nad6-1;biotype=protein_coding;transcript_id=BAV58153
+Mt	ena	exon	413200	414138	.	+	.	Parent=transcript:BAV58153;Name=BAV58153-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58153-1;rank=1
+Mt	ena	CDS	413200	414138	.	+	0	ID=CDS:BAV58153;Parent=transcript:BAV58153;protein_id=BAV58153
+###
+Mt	ena	gene	423172	423894	.	+	.	ID=gene:EPlHVUG00000039855;Name=ccmC_2;biotype=protein_coding;description=cytochrome c biogenesis protein ccmC;gene_id=EPlHVUG00000039855;logic_name=ena
+Mt	ena	mRNA	423172	423894	.	+	.	ID=transcript:BAV58154;Parent=gene:EPlHVUG00000039855;Name=ccmC_2-1;biotype=protein_coding;transcript_id=BAV58154
+Mt	ena	exon	423172	423894	.	+	.	Parent=transcript:BAV58154;Name=BAV58154-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58154-1;rank=1
+Mt	ena	CDS	423172	423894	.	+	0	ID=CDS:BAV58154;Parent=transcript:BAV58154;protein_id=BAV58154
+###
+Mt	ena	ncRNA_gene	426826	428802	.	+	.	ID=gene:EPlHVUG00000039928;Name=rrn18-3;biotype=rRNA;gene_id=EPlHVUG00000039928;logic_name=ena_rna
+Mt	ena	rRNA	426826	428802	.	+	.	ID=transcript:EPlHVUT00000248430;Parent=gene:EPlHVUG00000039928;Name=rrn18-3;biotype=rRNA;transcript_id=EPlHVUT00000248430
+Mt	ena	exon	426826	428802	.	+	.	Parent=transcript:EPlHVUT00000248430;Name=EPlHVUE00000729434;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729434;rank=1
+###
+Mt	ena	ncRNA_gene	428917	429038	.	+	.	ID=gene:EPlHVUG00000039920;Name=rrn5_3;biotype=rRNA;gene_id=EPlHVUG00000039920;logic_name=ena_rna
+Mt	ena	rRNA	428917	429038	.	+	.	ID=transcript:EPlHVUT00000248422;Parent=gene:EPlHVUG00000039920;Name=rrn5_3;biotype=rRNA;transcript_id=EPlHVUT00000248422
+Mt	ena	exon	428917	429038	.	+	.	Parent=transcript:EPlHVUT00000248422;Name=EPlHVUE00000729426;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729426;rank=1
+###
+Mt	ena	ncRNA_gene	430724	430798	.	+	.	ID=gene:EPlHVUG00000039897;Name=trnP;biotype=tRNA;gene_id=EPlHVUG00000039897;logic_name=ena_rna
+Mt	ena	tRNA	430724	430798	.	+	.	ID=transcript:EPlHVUT00000248399;Parent=gene:EPlHVUG00000039897;Name=trnP;biotype=tRNA;transcript_id=EPlHVUT00000248399
+Mt	ena	exon	430724	430798	.	+	.	Parent=transcript:EPlHVUT00000248399;Name=EPlHVUE00000729403;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729403;rank=1
+###
+Mt	ena_exon	biological_region	431979	432364	.	+	.	external_name=AP017301.1:exon:431979..432364;logic_name=ena_exon
+Mt	ena_misc_feature	biological_region	431979	501157	.	+	.	external_name=C to U RNA editing is expected to create translational start codon%3B trans_splicing;logic_name=ena_misc_feature
+Mt	ena	gene	440633	441448	.	+	.	ID=gene:EPlHVUG00000039894;Name=mttB;biotype=protein_coding;description=transport membrane protein;gene_id=EPlHVUG00000039894;logic_name=ena
+Mt	ena	mRNA	440633	441448	.	+	.	ID=transcript:BAV58155;Parent=gene:EPlHVUG00000039894;Name=mttB-1;biotype=protein_coding;transcript_id=BAV58155
+Mt	ena	exon	440633	441448	.	+	.	Parent=transcript:BAV58155;Name=BAV58155-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58155-1;rank=1
+Mt	ena	CDS	440633	441448	.	+	0	ID=CDS:BAV58155;Parent=transcript:BAV58155;protein_id=BAV58155
+###
+Mt	ena	gene	445965	447494	.	+	.	ID=gene:EPlHVUG00000039850;Name=atp1;biotype=protein_coding;description=ATP synthase subunit 1;gene_id=EPlHVUG00000039850;logic_name=ena
+Mt	ena	mRNA	445965	447494	.	+	.	ID=transcript:BAV58156;Parent=gene:EPlHVUG00000039850;Name=atp1-1;biotype=protein_coding;transcript_id=BAV58156
+Mt	ena	exon	445965	447494	.	+	.	Parent=transcript:BAV58156;Name=BAV58156-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58156-1;rank=1
+Mt	ena	CDS	445965	447494	.	+	0	ID=CDS:BAV58156;Parent=transcript:BAV58156;protein_id=BAV58156
+###
+Mt	ena	pseudogene	447624	447884	.	+	.	ID=gene:EPlHVUG00000039868;Name=rps2_p;biotype=pseudogene;gene_id=EPlHVUG00000039868;logic_name=ena
+Mt	ena	pseudogenic_transcript	447624	447884	.	+	.	ID=transcript:EPlHVUT00000248388;Parent=gene:EPlHVUG00000039868;Name=rps2_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248388
+Mt	ena	exon	447624	447884	.	+	.	Parent=transcript:EPlHVUT00000248388;Name=EPlHVUE00000729392;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729392;rank=1
+###
+Mt	ena	gene	447957	448199	.	+	.	ID=gene:EPlHVUG00000039864;Name=atp9;biotype=protein_coding;description=ATP synthase subunit 9;gene_id=EPlHVUG00000039864;logic_name=ena
+Mt	ena	mRNA	447957	448199	.	+	.	ID=transcript:BAV58157;Parent=gene:EPlHVUG00000039864;Name=atp9-1;biotype=protein_coding;transcript_id=BAV58157
+Mt	ena	exon	447957	448199	.	+	.	Parent=transcript:BAV58157;Name=BAV58157-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58157-1;rank=1
+Mt	ena	CDS	447957	448199	.	+	0	ID=CDS:BAV58157;Parent=transcript:BAV58157;protein_id=BAV58157
+###
+Mt	ena	ncRNA_gene	449871	449943	.	-	.	ID=gene:EPlHVUG00000039922;Name=trnK_3;biotype=tRNA;gene_id=EPlHVUG00000039922;logic_name=ena_rna
+Mt	ena	tRNA	449871	449943	.	-	.	ID=transcript:EPlHVUT00000248424;Parent=gene:EPlHVUG00000039922;Name=trnK_3;biotype=tRNA;transcript_id=EPlHVUT00000248424
+Mt	ena	exon	449871	449943	.	-	.	Parent=transcript:EPlHVUT00000248424;Name=EPlHVUE00000729428;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729428;rank=1
+###
+Mt	ena	ncRNA_gene	453244	453315	.	-	.	ID=gene:EPlHVUG00000039902;Name=trnQ_3;biotype=tRNA;gene_id=EPlHVUG00000039902;logic_name=ena_rna
+Mt	ena	tRNA	453244	453315	.	-	.	ID=transcript:EPlHVUT00000248404;Parent=gene:EPlHVUG00000039902;Name=trnQ_3;biotype=tRNA;transcript_id=EPlHVUT00000248404
+Mt	ena	exon	453244	453315	.	-	.	Parent=transcript:EPlHVUT00000248404;Name=EPlHVUE00000729408;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729408;rank=1
+###
+Mt	ena	ncRNA_gene	457182	460648	.	+	.	ID=gene:EPlHVUG00000039923;Name=rrn26-2;biotype=rRNA;gene_id=EPlHVUG00000039923;logic_name=ena_rna
+Mt	ena	rRNA	457182	460648	.	+	.	ID=transcript:EPlHVUT00000248425;Parent=gene:EPlHVUG00000039923;Name=rrn26-2;biotype=rRNA;transcript_id=EPlHVUT00000248425
+Mt	ena	exon	457182	460648	.	+	.	Parent=transcript:EPlHVUT00000248425;Name=EPlHVUE00000729429;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729429;rank=1
+###
+Mt	ena	ncRNA_gene	469339	469412	.	-	.	ID=gene:EPlHVUG00000039919;Name=trnfM2_3;biotype=tRNA;gene_id=EPlHVUG00000039919;logic_name=ena_rna
+Mt	ena	tRNA	469339	469412	.	-	.	ID=transcript:EPlHVUT00000248421;Parent=gene:EPlHVUG00000039919;Name=trnfM2_3;biotype=tRNA;transcript_id=EPlHVUT00000248421
+Mt	ena	exon	469339	469412	.	-	.	Parent=transcript:EPlHVUT00000248421;Name=EPlHVUE00000729425;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729425;rank=1
+###
+Mt	ena_misc_feature	biological_region	486582	486884	.	+	.	external_name=C to U RNA editing is expected to create translational start codon;logic_name=ena_misc_feature
+Mt	ena	gene	492667	494436	.	+	.	ID=gene:EPlHVUG00000039861;Name=ccmFN;biotype=protein_coding;description=cytochrome c biogenesis protein ccmF;gene_id=EPlHVUG00000039861;logic_name=ena
+Mt	ena	mRNA	492667	494436	.	+	.	ID=transcript:BAV58158;Parent=gene:EPlHVUG00000039861;Name=ccmFN-1;biotype=protein_coding;transcript_id=BAV58158
+Mt	ena	exon	492667	494436	.	+	.	Parent=transcript:BAV58158;Name=BAV58158-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58158-1;rank=1
+Mt	ena	CDS	492667	494436	.	+	0	ID=CDS:BAV58158;Parent=transcript:BAV58158;protein_id=BAV58158
+###
+Mt	ena	gene	494683	495207	.	+	.	ID=gene:EPlHVUG00000039873;Name=rps1;biotype=protein_coding;description=ribosomal protein small subunit 1;gene_id=EPlHVUG00000039873;logic_name=ena
+Mt	ena	mRNA	494683	495207	.	+	.	ID=transcript:BAV58159;Parent=gene:EPlHVUG00000039873;Name=rps1-1;biotype=protein_coding;transcript_id=BAV58159
+Mt	ena	exon	494683	495207	.	+	.	Parent=transcript:BAV58159;Name=BAV58159-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58159-1;rank=1
+Mt	ena	CDS	494683	495207	.	+	0	ID=CDS:BAV58159;Parent=transcript:BAV58159;protein_id=BAV58159
+###
+Mt	ena_misc_feature	biological_region	498341	500377	.	+	.	external_name=translational start codon is not determined;logic_name=ena_misc_feature
+Mt	ena_exon	biological_region	500899	501157	.	+	.	external_name=AP017301.1:exon:500899..501157;logic_name=ena_exon
+Mt	ena_exon	biological_region	501521	501541	.	+	.	external_name=AP017301.1:exon:501521..501541;logic_name=ena_exon
+Mt	ena	pseudogene	515221	515279	.	+	.	ID=gene:EPlHVUG00000039885;Name=rps1_p;biotype=pseudogene;gene_id=EPlHVUG00000039885;logic_name=ena
+Mt	ena	pseudogenic_transcript	515221	515279	.	+	.	ID=transcript:EPlHVUT00000248392;Parent=gene:EPlHVUG00000039885;Name=rps1_p-1;biotype=pseudogene;transcript_id=EPlHVUT00000248392
+Mt	ena	exon	515221	515279	.	+	.	Parent=transcript:EPlHVUT00000248392;Name=EPlHVUE00000729396;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729396;rank=1
+###
+Mt	ena	gene	524211	524783	.	+	.	ID=gene:EPlHVUG00000039880;Name=nad9_1;biotype=protein_coding;description=NADH dehydrogenase subunit 9;gene_id=EPlHVUG00000039880;logic_name=ena
+Mt	ena	mRNA	524211	524783	.	+	.	ID=transcript:BAV58160;Parent=gene:EPlHVUG00000039880;Name=nad9_1-1;biotype=protein_coding;transcript_id=BAV58160
+Mt	ena	exon	524211	524783	.	+	.	Parent=transcript:BAV58160;Name=BAV58160-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=BAV58160-1;rank=1
+Mt	ena	CDS	524211	524783	.	+	0	ID=CDS:BAV58160;Parent=transcript:BAV58160;protein_id=BAV58160
+###
+Mt	ena	ncRNA_gene	525527	525598	.	+	.	ID=gene:EPlHVUG00000039896;Name=trnY_p;biotype=tRNA;gene_id=EPlHVUG00000039896;logic_name=ena_rna
+Mt	ena	tRNA	525527	525598	.	+	.	ID=transcript:EPlHVUT00000248398;Parent=gene:EPlHVUG00000039896;Name=trnY_p;biotype=tRNA;transcript_id=EPlHVUT00000248398
+Mt	ena	exon	525527	525598	.	+	.	Parent=transcript:EPlHVUT00000248398;Name=EPlHVUE00000729402;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=EPlHVUE00000729402;rank=1
+###
