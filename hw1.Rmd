@@ -18,9 +18,9 @@ barplot(s,names=1:length(s), main='SFS')
 
 ```{r}
 library(data.table)
-t <- fread('cache/theta.txt',data.table = FALSE)
-read.table()
-hist(t$Pairwise)
+theta <- fread('cache/theta.txt',data.table = FALSE)
+#read.table()
+hist(theta$Pairwise)
 ```
 
 
@@ -106,10 +106,10 @@ fwrite(g, "cache/mt_gene.txt", sep="\t", row.names = FALSE, quote=FALSE)
 
 
 ```{r}
-if (!requireNamespace("BiocManager", quietly = TRUE))
+#if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("GenomicRanges")
+#BiocManager::install("GenomicRanges")
 ```
 
 
@@ -226,7 +226,7 @@ gene$feture <- "genic"
 res <- rbind(up5k, down5k)
 res_nongenic <- res
 res_nongenic$feture <- "intergenic"
-res_t <- rbind(res, gene, res_nongenic)
+res_t <- rbind("res", "gene", "res_nongenic")
 
 
 ggplot(res, aes(x=feature, y=Pairwise, fill=feature)) + 
@@ -249,13 +249,18 @@ gene$feature <- "genic"
 res <- rbind(up5k, down5k)
 res_nongenic <- res
 res_nongenic$feature <- "intergenic"
-res_t <- rbind(res, gene, res_nongenic)
+res_t <- rbind("res", "gene", "res_nongenic")
+
+res_t <- as.data.frame(res_t)
+head(res_t)
+
 ggplot(res_t, aes(x=feature, y=Pairwise, fill=feature)) + 
   geom_violin(trim=FALSE)+
   labs(title="Theta value", x="", y = "Log10 (theta)")+
   geom_boxplot(width=0.1, fill="white")+
   scale_fill_brewer(palette="Blues") + 
   theme_classic()
+
 
 ```
 
@@ -317,10 +322,12 @@ res_f <- rbind(up5k_f, down5k_f)
 res_nongenic_f <- res_f
 res_nongenic_f$feature <- "intergenic"
 res_t_f <- rbind(res_f, gene_f, res_nongenic_f)
+
+
 ggplot(res_t_f, aes(x=feature, y=Fst, fill=feature)) + 
   geom_violin(trim=FALSE)+
   labs(title="Fst distribution", x="", y = "Fst")+
   geom_boxplot(width=0.1, fill="white")+
-  scale_fill_brewer(palette="greens") + 
+  scale_fill_brewer(palette="Blues") + 
   theme_classic()
 ```
