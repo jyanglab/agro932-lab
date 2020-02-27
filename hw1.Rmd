@@ -238,8 +238,8 @@ ggplot(res, aes(x=feature, y=Pairwise, fill=feature)) +
 
 ```
 
-#extra
 
+## could not run rest_t 
 ```{r, eval=FALSE}
 library("ggplot2")
 
