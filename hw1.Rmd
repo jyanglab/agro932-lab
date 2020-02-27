@@ -14,6 +14,18 @@ s <- scan('cache/out.sfs')
 s <- s[-c(1,length(s))]
 s <- s/sum(s)
 barplot(s,names=1:length(s), main='SFS')
+
+
+#function to normalize
+norm <- function(x) x/sum(x)
+#read data
+sfs <- (scan("cache/out.sfs"))
+#the variability as percentile
+pvar<- (1-sfs[1]-sfs[length(sfs)])*100
+#the variable categories of the sfs
+sfs<-norm(sfs[-c(1,length(sfs))]) 
+barplot(sfs,legend=paste("Variability:= ",round(pvar,3),"%"),xlab="Chromosomes",
+names=1:length(sfs),ylab="Proportions",main="mySFS plot",col='blue')
 ```
 
 ```{r}
