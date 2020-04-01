@@ -10,7 +10,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE) 
-#knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
 ```
 
 
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Flint-Garcia et al., 2009 data
 
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -47,12 +47,8 @@ H2 = Vg/(Vg + Ve)
 H2
 ```
 
-### Cob Dia
+## CobDia_Inbred
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -67,12 +63,25 @@ anova(fit)
 
 
 
+## CobDia_Hyb
+```{r}
+# four environments
+table(f$Env)
+
+f$INBRED <- as.factor(f$INBRED)
+f$Env <- as.factor(f$Env)
+# tricky part, be careful:
+f$CobDia_Hyb  <- as.numeric(as.character((f$CobDia_Hyb)))
+
+fit <- lm(CobDia_Hyb ~ INBRED + Env + INBRED*Env, data=f)
+anova(fit)
+```
+
+
+
+
 ## CobWt_Inbred
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -98,10 +107,6 @@ H2
 
 ## CobWt_Hyb
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -117,10 +122,6 @@ anova(fit)
 
 ## EarLength_Inbred 
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -139,10 +140,6 @@ anova(fit)
 
 ## EarLength_Hyb 
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -162,10 +159,6 @@ anova(fit)
 
 ## PLTHT_Inbred
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
@@ -184,10 +177,6 @@ anova(fit)
 
 ## PLTHT_Hyb
 ```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
 # four environments
 table(f$Env)
 
