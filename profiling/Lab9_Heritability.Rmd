@@ -11,7 +11,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE) 
-knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+#knitr::opts_knit$set(root.dir=normalizePath('../../')) 
 ```
 
 
@@ -22,8 +22,8 @@ knitr::opts_knit$set(root.dir=normalizePath('../../'))
 ## Data
 
 ```{r}
-d <- read.table("data/sorghum_height.txt", header = TRUE)
-d <- read.table("data/sorghum_height.txt", header=TRUE)
+d <- read.table("../data/sorghum_height.txt", header = TRUE)
+
 
 # Creating factors
 d$Variety <- as.factor(d$Family)
@@ -41,7 +41,7 @@ anova(fit)
 ### Flint-Garcia et al., 2009 data
 
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -72,7 +72,7 @@ H2
 
 ### Cob Dia
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -105,7 +105,7 @@ H2
 
 ## CobWt_Inbred
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -134,7 +134,7 @@ H2
 
 ## CobWt_Hyb
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -153,7 +153,7 @@ anova(fit)
 
 ## EarLength_Inbred 
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -175,7 +175,7 @@ anova(fit)
 
 ## EarLength_Hyb 
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -198,7 +198,7 @@ anova(fit)
 
 ## PLTHT_Inbred
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
@@ -220,7 +220,7 @@ anova(fit)
 
 ## PLTHT_Hyb
 ```{r}
-f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
 
