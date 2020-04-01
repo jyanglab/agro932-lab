@@ -1,5 +1,5 @@
 ---
-title: "HW_Lab9"
+title: "Lab9"
 author: "spalalidelen2"
 date: "3/31/2020"
 output: html_document
@@ -101,7 +101,7 @@ H2
 
 
 
-## Semra
+
 
 ## CobWt_Inbred
 ```{r}
@@ -124,114 +124,27 @@ anova(fit)
 
 
 ```{r}
-Vg =  (22.108 - 4.063)/4
+Vg =  (48.15 - 14.05)/4
 Ve = 0
-Vge = 4.063
+Vge = 14.05
 
 H2 = Vg/(Vg + Ve + Vge)
 H2
 ```
 
-## CobWt_Hyb
-```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$CobWt_Hyb  <- as.numeric(as.character((f$CobWt_Hyb)))
-
-fit <- lm(CobWt_Hyb ~ INBRED + Env, data=f)
-anova(fit)
-```
-
-
-## EarLength_Inbred 
-```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$EarLength_Inbred  <- as.numeric(as.character((f$EarLength_Inbred)))
-
-fit <- lm(EarLength_Inbred ~ INBRED + Env, data=f)
-anova(fit)
-```
-
-
-
-
-
-## EarLength_Hyb 
-```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$EarLength_Hyb  <- as.numeric(as.character((f$EarLength_Hyb)))
-
-fit <- lm(EarLength_Hyb ~ INBRED + Env, data=f)
-anova(fit)
-```
 
 
 
 
 
 
-## PLTHT_Inbred
-```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
-
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$PLTHT_Inbred  <- as.numeric(as.character((f$PLTHT_Inbred)))
-
-fit <- lm(PLTHT_Inbred ~ INBRED + Env, data=f)
-anova(fit)
-```
 
 
 
 
 
-## PLTHT_Hyb
-```{r}
-f <- read.delim("../data/journal.pone.0007433.s001.txt", header=TRUE)
-# Convert missing data to NA
-f[f=="."] <- NA
 
-# four environments
-table(f$Env)
 
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$PLTHT_Hyb  <- as.numeric(as.character((f$PLTHT_Hyb)))
 
-fit <- lm(PLTHT_Hyb ~ INBRED + Env, data=f)
-anova(fit)
-```
+
+
