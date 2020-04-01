@@ -388,9 +388,8 @@ barplot(s,names=1:length(s), main='SFS')
 #### Histgram distribution of the theta values
 
 ```{r, eval=FALSE}
-library("data.table")
-theta <- fread("../../cache/theta.txt", header=TRUE)
-hist(theta$Pairwise)
+theta <- read.table("../../cache/theta.txt", header=TRUE)
+hist(t$Pairwise)
 ```
 
 #### Scatter plot of the Fst values
