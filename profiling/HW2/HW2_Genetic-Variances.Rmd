@@ -27,55 +27,17 @@ table(f$Env)
 
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$TotKnlWt_Inbred  <- as.numeric(as.character((f$TotKnlWt_Inbred)))
-
-fit <- lm(TotKnlWt_Inbred ~ INBRED + Env, data=f)
-anova(fit)
 ```
 
+$$
+H^2 = \frac{V_G}{V_P}
+$$
 $$
 H^2 = \frac{V_G}{V_G + V_E}
 $$
-With $(V_G =  MS(G) - MS(error)/n$ 
-
-```{r}
-Vg =  (603.8 - 307.5)/4
-Ve = 307.5
-
-H2 = Vg/(Vg + Ve)
-H2
-```
-
-## CobDia_Inbred
-```{r}
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$CobDia_Inbred  <- as.numeric(as.character((f$CobDia_Inbred)))
-
-fit <- lm(CobDia_Inbred ~ INBRED + Env + INBRED*Env, data=f)
-anova(fit)
-```
-
-
-
-## CobDia_Hyb
-```{r}
-# four environments
-table(f$Env)
-
-f$INBRED <- as.factor(f$INBRED)
-f$Env <- as.factor(f$Env)
-# tricky part, be careful:
-f$CobDia_Hyb  <- as.numeric(as.character((f$CobDia_Hyb)))
-
-fit <- lm(CobDia_Hyb ~ INBRED + Env + INBRED*Env, data=f)
-anova(fit)
-```
+$$
+V_G = \frac{MS(G)- MS(error)}{n}
+$$ 
 
 
 
@@ -97,12 +59,12 @@ anova(fit)
 
 
 ```{r}
-Vg =  (22.108 - 4.063)/4
+Vg =  (48.15 - 14.05)/4
 Ve = 0
-Vge = 4.063
+Vge = 14.05
 
-H2 = Vg/(Vg + Ve + Vge)
-H2
+H2_CobWt_Inbred = Vg/(Vg + Ve + Vge)
+H2_CobWt_Inbred
 ```
 
 ## CobWt_Hyb
@@ -120,6 +82,18 @@ anova(fit)
 ```
 
 
+```{r}
+Vg =  (78.19 - 19.55)/4
+Ve = 0
+Vge = 19.55
+
+H2_CobWt_Hyb = Vg/(Vg + Ve + Vge)
+H2_CobWt_Hyb
+```
+
+
+
+
 ## EarLength_Inbred 
 ```{r}
 # four environments
@@ -135,7 +109,14 @@ anova(fit)
 ```
 
 
+```{r}
+Vg =  (846 - 233)/4
+Ve = 0
+Vge = 233
 
+H2_EarLength_Inbred = Vg/(Vg + Ve + Vge)
+H2_EarLength_Inbred
+```
 
 
 ## EarLength_Hyb 
@@ -153,6 +134,14 @@ anova(fit)
 ```
 
 
+```{r}
+Vg =  (776 - 164)/4
+Ve = 0
+Vge = 164
+
+H2_EarLength_Hyb = Vg/(Vg + Ve + Vge)
+H2_EarLength_Hyb
+```
 
 
 
@@ -172,7 +161,14 @@ anova(fit)
 ```
 
 
+```{r}
+Vg =  (1781 - 192)/4
+Ve = 0
+Vge = 192
 
+H2_PLTHT_Inbred = Vg/(Vg + Ve + Vge)
+H2_PLTHT_Inbred
+```
 
 
 ## PLTHT_Hyb
@@ -187,4 +183,30 @@ f$PLTHT_Hyb  <- as.numeric(as.character((f$PLTHT_Hyb)))
 
 fit <- lm(PLTHT_Hyb ~ INBRED + Env, data=f)
 anova(fit)
+```
+
+
+
+```{r}
+Vg =  (2414 - 168)/4
+Ve = 0
+Vge = 168
+
+H2_PLTHT_Hyb = Vg/(Vg + Ve + Vge)
+H2_PLTHT_Hyb
+```
+
+
+
+
+```{r}
+H2_all_traits <- c("H2_CobWt_Inbred", "H2_CobWt_Hyb", "H2_EarLength_Inbred", "H2_EarLength_Hyb", "H2_PLTHT_Inbred", "H2_PLTHT_Hyb")
+
+H2_all_values <- c(0.3776301, 0.4285297, 0.3967638, 0.4826498, 0.6741621, 0.7697053)
+```
+
+
+```{r}
+library(ggplot2)
+barplot(H2_all_values, main = "the comparision of heritability in inbreds and hybrids", col = c("dark red", "maroon", "dark red", "maroon", "dark red", "maroon"), ylab = "heritability", names.arg = c("CobWt_Inbred", "CobWt_Hyb", "EarLength_Inbred", "EarLength_Hyb", "PLTHT_Inbred", "PLTHT_Hyb"))
 ```
