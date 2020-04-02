@@ -1,0 +1,150 @@
+---
+title: "calculate fitness and genetic variance in inbred and hybrid population1"
+author: "FANG WANG"
+date: "April 1st, 2020"
+output:
+  word_document: default
+---
+
+#IDEA: the interested traits are 'Days to anthesis', 'Plant Yield' and 'Total kernel weight' in inbred population and population 1 (hybrid).Because the %BPH of these traits in hybrid are all pretty high (100%,98% and 99%). All these traits show significant heterosis depending on the literature.
+
+#Hypothesis: Heterosis exits in the traits 'Days to anthesis', 'Plant Yield' and 'Total kernel weight' which has high better-parent heterosis percentage (%BPH) in the hybrid population.  
+
+## Normalize the path:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+```
+
+## Flint-Garcia et al., 2009 data
+```{r}
+f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+# Convert missing data to NA
+f[f=="."] <- NA
+```
+
+
+###variance of each trait in inbred population
+
+###model:Y=u+Fi+Ej+e (u:overall mean, Fi:individuals genetic background, Ej: effect by jth environment, e: error)
+```{r}
+f$INBRED <- as.factor(f$INBRED)
+f$Env <- as.factor(f$Env)
+f$PltYield_Inbred<-as.factor(f$PltYield_Inbred)
+f$DTT_Inbred<-as.factor(f$DTT_Inbred)
+f$TotKnlWt_Inbred<-as.factor(f$TotKnlWt_Inbred)
+
+#calculate ANOVA for each trait in inbred population
+##Total kernel weight
+f$TotKnlWt_Inbred<-as.numeric(as.character((f$TotKnlWt_Inbred)))
+fit_TotKnlwt <- lm(TotKnlWt_Inbred ~ INBRED + Env, data=f)
+a_TotKnlwt<-anova(fit_TotKnlwt)
+a_TotKnlwt
+##Days to Anthesis
+f$DTT_Inbred<-as.numeric(as.character((f$DTT_Inbred)))
+fit_DTT <- lm(DTT_Inbred ~ INBRED + Env, data=f)
+a_DTT<-anova(fit_DTT)
+a_DTT
+##Plant Yield
+f$PltYield_Inbred<-as.numeric(as.character((f$PltYield_Inbred)))
+fit_PltYield<-lm(PltYield_Inbred ~ INBRED + Env, data=f)
+a_PltYield<-anova(fit_PltYield)
+a_PltYield
+```
+
+###H2 of each trait in inbred population
+
+```{r} 
+Vgt = (603.8 - 307.5)/4
+Vet = 307.5
+H2_TotKnlWt_Inbred = Vgt/(Vgt + Vet)
+H2_TotKnlWt_Inbred
+
+Vgd = (232.1 - 12.8)/4
+Ved = 12.8
+H2_DTT_Inbred = Vgd/(Vgd + Ved)
+H2_DTT_Inbred
+
+Vgp = (549.08 - 358.99)/2
+Vep = 358.99
+H2_PltYield_Inbred = Vgp/(Vgp + Vep)
+H2_PltYield_Inbred
+
+```
+
+
+###variance of each trait in hybrid population1
+
+###For population1, it is a half-sib mating design that all the inbred lines were considered as male parent and making cross with B73. 
+
+###model:Y=u+Fi+Ej_e(u:overall mean, Fi:effect of ith parent, Ej: effect by jth environment, e: error)
+
+```{r}
+f$INBRED <- as.factor(f$INBRED)
+f$Env <- as.factor(f$Env)
+f$TotKnlWt_Hyb <- as.factor(f$KnlHgt_Hyb)
+f$DTT_Hyb<-as.factor(f$DTT_Hyb)
+f$PltYield_Hyb<-as.factor(f$PltYield_Hyb)
+
+#calculate ANOVA for each trait in hybrid population
+##Total kernel weight
+f$TotKnlWt_Hyb <- as.numeric(as.character((f$TotKnlWt_Hyb)))
+fit_TotKnlwt_Hyb <- lm(TotKnlWt_Hyb ~ INBRED + Env, data=f)
+a_TotKnlwt_Hyb <- anova(fit_TotKnlwt_Hyb)
+a_TotKnlwt_Hyb
+##Day to anthesis
+f$DTT_Hyb <- as.numeric(as.character((f$DTT_Hyb)))
+fit_DTT_Hyb <- lm(DTT_Hyb ~ INBRED + Env, data=f)
+a_DTT_Hyb<-anova(fit_DTT_Hyb)
+a_DTT_Hyb
+##Plant yield
+f$PltYield_Hyb <- as.numeric(as.character((f$PltYield_Hyb)))
+fit_PltYield_Hyb <- lm(PltYield_Hyb ~ INBRED + Env, data=f)
+a_PltYield_Hyb<-anova(fit_PltYield_Hyb)
+a_PltYield_Hyb
+```
+
+
+###the covariance between relatives for each trait: cov=1/4*Vf=1/4*V(inbred)
+
+```{r}
+Vgth =  (9.61 - 2.41)/4 #this is the covariance between male parents(selected from inbred population) and B73 (female parent)
+Veth = 2.41
+H2_TotKnlWt_Hyb = Vgth/(Vgth + Veth)
+H2_TotKnlWt_Hyb
+
+Vgdh =  (72.5 - 3.2)/4 #this is the covariance between male parents(selected from inbred population) and B73 (female parent)
+Vedh = 3.2
+H2_DTT_Hyb = Vgdh/(Vgdh + Vedh)
+H2_DTT_Hyb
+
+Vgph =  (2332 - 1210)/2 #this is the covariance between male parents(selected from inbred population) and B73 (female parent)
+Veph = 1210
+H2_PltYield_Hyb = Vgph/(Vgph + Veph)
+H2_PltYield_Hyb
+```
+
+```{r}
+#H2_NUMBER<-c(H2_TotKnlWt_Inbred,H2_TotKnlWt_Hyb,H2_DTT_Inbred,H2_DTT_Hyb,H2_PltYield_Inbred,H2_PltYield_Hyb)
+H2_NUMBER<-c(0.1941296,0.4275534, 0.8107209, 0.8440926, 0.2093341, 0.3167702)
+H2_NUMBER
+H2_name<-c("H2_TotKnlWt_Inbred","H2_TotKnlWt_Hyb","H2_DTT_Inbred","H2_DTT_Hyb","H2_PltYield_Inbred","H2_PltYield_Hyb")
+H2_name
+data.matrix(H2_name,H2_NUMBER)
+#H2=data.frame(H2_name,H2_NUMBER)
+H2<-cbind(H2_name,H2_NUMBER)
+H2
+library(ggplot2)
+barplot(H2_NUMBER,
+        main = "Heritability of traits in inbred and hybrid1 population",
+        col = c("light blue","light blue","red","red","light yellow","light yellow"),
+        ylab = "heritability",
+        names.arg = c("TotKnlWt_Inb","TotKnlWt_Hyb","DTT_Inb","DTT_Hyb","PltYield_Inb","PltYield_Hyb"), 
+        las=2)
+
+```
+
+
+##interpretation of the result: 
+##Overall, the H2 of DTT is significantly higher than other two trait which means the "Days to Anthesis" is a more stable and genetic-controlled trait. The Heritability of hybrid is higher than it in inbred populations for three traits. This indicates the heterosis do exit in the hybrid offsprings which lays the theoretical foundation for breeding.   
