@@ -1,0 +1,33 @@
+seq	source	feature	start	end	score	strand	phase	att	geneid
+Mt	ena	gene	442	5442	.	+	.	ID=gene:EPlHVUG00000039890;Name=nad3_1;biotype=protein_coding;description=NADH dehydrogenase subunit 3;gene_id=EPlHVUG00000039890;logic_name=ena	EPlHVUG00000039890;Name=nad3_1
+Mt	ena	gene	8645	13645	.	+	.	ID=gene:EPlHVUG00000039869;biotype=protein_coding;description=ribosomal protein small subunit 7;gene_id=EPlHVUG00000039869;logic_name=ena	EPlHVUG00000039869
+Mt	ena	gene	33739	38739	.	+	.	ID=gene:EPlHVUG00000039881;Name=rps13;biotype=protein_coding;description=ribosomal protein small subunit 13;gene_id=EPlHVUG00000039881;logic_name=ena	EPlHVUG00000039881;Name=rps13
+Mt	ena	gene	51126	56126	.	+	.	ID=gene:EPlHVUG00000039856;Name=cox1;biotype=protein_coding;description=cytochrome c oxidase subunit 1;gene_id=EPlHVUG00000039856;logic_name=ena	EPlHVUG00000039856;Name=cox1
+Mt	ena	gene	102928	107928	.	+	.	ID=gene:EPlHVUG00000039852;Name=atp6;biotype=protein_coding;description=ATP synthase subunit 6;gene_id=EPlHVUG00000039852;logic_name=ena	EPlHVUG00000039852;Name=atp6
+Mt	ena	gene	124030	129030	.	+	.	ID=gene:EPlHVUG00000039865;Name=ccmC_1;biotype=protein_coding;description=cytochrome c biogenesis protein ccmC;gene_id=EPlHVUG00000039865;logic_name=ena	EPlHVUG00000039865;Name=ccmC_1
+Mt	ena	gene	139246	144246	.	+	.	ID=gene:EPlHVUG00000039878;Name=rpl5_1;biotype=protein_coding;description=ribosomal protein large subunit 5;gene_id=EPlHVUG00000039878;logic_name=ena	EPlHVUG00000039878;Name=rpl5_1
+Mt	ena	gene	142269	147269	.	+	.	ID=gene:EPlHVUG00000039882;Name=rps2_1;biotype=protein_coding;description=ribosomal protein small subunit 2;gene_id=EPlHVUG00000039882;logic_name=ena	EPlHVUG00000039882;Name=rps2_1
+Mt	ena	gene	154877	159877	.	+	.	ID=gene:EPlHVUG00000039870;Name=nad3_2;biotype=protein_coding;description=NADH dehydrogenase subunit 3;gene_id=EPlHVUG00000039870;logic_name=ena	EPlHVUG00000039870;Name=nad3_2
+Mt	ena	gene	155299	160299	.	+	.	ID=gene:EPlHVUG00000039891;Name=rps12;biotype=protein_coding;description=ribosomal protein small subunit 12;gene_id=EPlHVUG00000039891;logic_name=ena	EPlHVUG00000039891;Name=rps12
+Mt	ena	gene	199830	204830	.	+	.	ID=gene:EPlHVUG00000039875;biotype=protein_coding;description=ribosomal protein small subunit 3;gene_id=EPlHVUG00000039875;logic_name=ena	EPlHVUG00000039875
+Mt	ena	gene	200236	205236	.	+	.	ID=gene:EPlHVUG00000039888;biotype=protein_coding;description=ribosomal protein large subunit 16;gene_id=EPlHVUG00000039888;logic_name=ena	EPlHVUG00000039888
+Mt	ena	gene	204088	209088	.	+	.	ID=gene:EPlHVUG00000039883;biotype=protein_coding;description=ribosomal protein small subunit 4;gene_id=EPlHVUG00000039883;logic_name=ena	EPlHVUG00000039883
+Mt	ena	gene	215185	220185	.	+	.	ID=gene:EPlHVUG00000039863;Name=cox3;biotype=protein_coding;description=cytochrome c oxidase subunit 3;gene_id=EPlHVUG00000039863;logic_name=ena	EPlHVUG00000039863;Name=cox3
+Mt	ena	gene	260982	265982	.	+	.	ID=gene:EPlHVUG00000039851;Name=atp4;biotype=protein_coding;description=ATP synthase subunit 4;gene_id=EPlHVUG00000039851;logic_name=ena	EPlHVUG00000039851;Name=atp4
+Mt	ena	gene	289809	294809	.	+	.	ID=gene:EPlHVUG00000039877;Name=ccmB;biotype=protein_coding;description=cytochrome c biogenesis protein ccmB;gene_id=EPlHVUG00000039877;logic_name=ena	EPlHVUG00000039877;Name=ccmB
+Mt	ena	gene	308713	313713	.	+	.	ID=gene:EPlHVUG00000039848;Name=rpl5_2;biotype=protein_coding;description=ribosomal protein large subunit 5;gene_id=EPlHVUG00000039848;logic_name=ena	EPlHVUG00000039848;Name=rpl5_2
+Mt	ena	gene	311736	316736	.	+	.	ID=gene:EPlHVUG00000039858;Name=rps2_2;biotype=protein_coding;description=ribosomal protein small subunit 2;gene_id=EPlHVUG00000039858;logic_name=ena	EPlHVUG00000039858;Name=rps2_2
+Mt	ena	gene	360773	365773	.	+	.	ID=gene:EPlHVUG00000039867;Name=nad4;biotype=protein_coding;description=NADH dehydrogenase subunit 4;gene_id=EPlHVUG00000039867;logic_name=ena	EPlHVUG00000039867;Name=nad4
+Mt	ena	gene	414139	419139	.	+	.	ID=gene:EPlHVUG00000039849;Name=nad6;biotype=protein_coding;description=NADH dehydrogenase subunit 6;gene_id=EPlHVUG00000039849;logic_name=ena	EPlHVUG00000039849;Name=nad6
+Mt	ena	gene	423895	428895	.	+	.	ID=gene:EPlHVUG00000039855;Name=ccmC_2;biotype=protein_coding;description=cytochrome c biogenesis protein ccmC;gene_id=EPlHVUG00000039855;logic_name=ena	EPlHVUG00000039855;Name=ccmC_2
+Mt	ena	gene	441449	446449	.	+	.	ID=gene:EPlHVUG00000039894;Name=mttB;biotype=protein_coding;description=transport membrane protein;gene_id=EPlHVUG00000039894;logic_name=ena	EPlHVUG00000039894;Name=mttB
+Mt	ena	gene	447495	452495	.	+	.	ID=gene:EPlHVUG00000039850;Name=atp1;biotype=protein_coding;description=ATP synthase subunit 1;gene_id=EPlHVUG00000039850;logic_name=ena	EPlHVUG00000039850;Name=atp1
+Mt	ena	gene	448200	453200	.	+	.	ID=gene:EPlHVUG00000039864;Name=atp9;biotype=protein_coding;description=ATP synthase subunit 9;gene_id=EPlHVUG00000039864;logic_name=ena	EPlHVUG00000039864;Name=atp9
+Mt	ena	gene	494437	499437	.	+	.	ID=gene:EPlHVUG00000039861;Name=ccmFN;biotype=protein_coding;description=cytochrome c biogenesis protein ccmF;gene_id=EPlHVUG00000039861;logic_name=ena	EPlHVUG00000039861;Name=ccmFN
+Mt	ena	gene	495208	500208	.	+	.	ID=gene:EPlHVUG00000039873;Name=rps1;biotype=protein_coding;description=ribosomal protein small subunit 1;gene_id=EPlHVUG00000039873;logic_name=ena	EPlHVUG00000039873;Name=rps1
+Mt	ena	gene	524784	529784	.	+	.	ID=gene:EPlHVUG00000039880;Name=nad9_1;biotype=protein_coding;description=NADH dehydrogenase subunit 9;gene_id=EPlHVUG00000039880;logic_name=ena	EPlHVUG00000039880;Name=nad9_1
+Mt	ena	gene	104865	109865	.	-	.	ID=gene:EPlHVUG00000039857;Name=atp8;biotype=protein_coding;description=ATP synthase subunit 8;gene_id=EPlHVUG00000039857;logic_name=ena	EPlHVUG00000039857;Name=atp8
+Mt	ena	gene	235851	240851	.	-	.	ID=gene:EPlHVUG00000039853;Name=cob;biotype=protein_coding;description=apocytochrome b;gene_id=EPlHVUG00000039853;logic_name=ena	EPlHVUG00000039853;Name=cob
+Mt	ena	gene	312112	317112	.	-	.	ID=gene:EPlHVUG00000039871;Name=cox2;biotype=protein_coding;description=cytochrome c oxidase subunit 2;gene_id=EPlHVUG00000039871;logic_name=ena	EPlHVUG00000039871;Name=cox2
+Mt	ena	gene	334138	339138	.	-	.	ID=gene:EPlHVUG00000039893;Name=nad9_2;biotype=protein_coding;description=NADH dehydrogenase subunit 9;gene_id=EPlHVUG00000039893;logic_name=ena	EPlHVUG00000039893;Name=nad9_2
+Mt	ena	gene	387272	392272	.	-	.	ID=gene:EPlHVUG00000039879;Name=nad7;biotype=protein_coding;description=NADH dehydrogenase subunit 7;gene_id=EPlHVUG00000039879;logic_name=ena	EPlHVUG00000039879;Name=nad7
