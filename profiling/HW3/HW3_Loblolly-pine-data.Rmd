@@ -6,7 +6,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
 ```
 
 ## Question2
@@ -26,3 +27,11 @@ A %*% B
 ```
 
 
+##Question3
+```{r}
+loblolly_pheno_data <- read.csv("data/DATA_rootnum_age10_rootnum.csv", header = TRUE, stringsAsFactors = FALSE)
+
+geno_data <- "https://jyanglab.com/img/data/Snp_Data.csv"
+
+loblolly_geno_data <- read.csv(geno_data, header=TRUE, stringsAsFactors = FALSE)
+```
