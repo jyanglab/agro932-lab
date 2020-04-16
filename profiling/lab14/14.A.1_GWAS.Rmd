@@ -16,10 +16,10 @@ knitr::opts_knit$set(root.dir=normalizePath('../../'))
 
 # GWAS practice using rice data
 
-[Zhao et al., 2011](https://www.nature.com/articles/ncomms1467) Genome-wide association mapping reveals a rich genetic architecture of complex traits in \textit{Oryza sativa}
+[Zhao et al., 2011](https://www.nature.com/articles/ncomms1467) Genome-wide association mapping reveals a rich genetic architecture of complex traits in _Oryza sativa_
 
 ### Materials and methods
-- __Materials__: 413 diverse accessions (inbreds) of rice from 82 countries
+- __Materials__: 413 diverse accessions (inbreds) of rice from 82 countries considered as inbred
 - __Genotype__: 44,100 SNPs using 44 K SNP array
 - __Phenotype__: One location in two years. Two reps per year in a randomized complete block design.
   - 34 traits
@@ -44,6 +44,7 @@ df <- read.csv("http://ricediversity.org/data/sets/44kgwas/RiceDiversity.44K.ger
 df$Latitude <- as.numeric(as.character(df$Latitude))
 range(df$Latitude, na.rm = T)
 df$Longitude <- as.numeric(as.character(df$Longitude))
+class(df$Longitude)
 range(df$Longitude, na.rm = T)
 ```
 
@@ -56,11 +57,12 @@ range(df$Longitude, na.rm = T)
 library(ggmap)
 ##lowerleftlon, lowerleftlat, upperrightlon, upperrightlat
 myloc <- c(-105, -40, 170, 56)
-
+?get_map()#google_map don't allow for world map;
 mymap <- get_map(location=myloc, source="stamen", crop=FALSE, color="bw")
 ggmap(mymap) + 
     geom_point(aes(x = Longitude, y = Latitude), data = df,
                alpha = .9, size = 1, col="red")
+head(df)
 ```
 
 ---
@@ -73,11 +75,13 @@ library(plyr)
 c <- ddply(df, .(Country.of.origin), nrow)
 c <- subset(c, Country.of.origin != "")
 df2 <- merge(c, df[, c("Country.of.origin",  "Latitude", "Longitude")], by="Country.of.origin")
-
+df2<-df2[!duplicated(df2$Country.of.origin),]
+dim(df2)
 mymap <- get_map(location=myloc, source="stamen", crop=FALSE, color="bw")
 ggmap(mymap) + 
     geom_point(aes(x = Longitude, y = Latitude), data = df2,
                alpha = .9, size = df2$V1/10, col="red")
+
 ```
 
 ---
@@ -110,7 +114,7 @@ __.fam__: A text file with no header line, and one line per sample with the foll
 - `data/RiceDiversity_44K_Genotypes_PLINK/`
   - sativas413.fam
   - sativas413.map
-  - sativas413.ped
+  - sativas413.ped #missing SNPs are using 0.
 - Or download data from: [zipped data](http://ricediversity.org/data/sets/44kgwas/)
 
 --------------------
@@ -149,7 +153,7 @@ __.ped__: Contains no header line, and one line per sample with 6+2V fields wher
 ```{bash, eval=FALSE}
 cp -r data/RiceDiversity_44K_Genotypes_PLINK largedata/
 
-module load plink/1.9
+module load plink/1.90
 # convert it to binary file
 cd largedata/RiceDiversity_44K_Genotypes_PLINK
 plink --file sativas413 --make-bed --out binary_sativas413
@@ -163,6 +167,7 @@ plink --file sativas413 --make-bed --out binary_sativas413
 - `--missing`: produces sample-based and variant-based missing data reports. 
 
 ```{bash, eval=FALSE}
+#operated on HCC 
 plink -bfile binary_sativas413 --freq --missing --out sativas413
 
 # copy results back to cache folder!
@@ -174,6 +179,7 @@ cp largedata/RiceDiversity_44K_Genotypes_PLINK/sativas413.lmiss cache/
 # Visulize MAF and locus missing rate
 
 ```{r, eval=FALSE}
+#change to local computer 
 # install.packages("data.table")
 library("data.table")
 

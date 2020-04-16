@@ -269,18 +269,18 @@ plot(y.hat2, y[(n.trn+1):n])
 rrblup_cor<-cor(y.hat2, y[(n.trn+1):n])
 rrblup_cor
 ```
-
+#Interpret: the correlation between prediction and original breeding value by GBLUP and RR-BLUP are same which is 0.35. This indicates that both methods have same predict accuracy on our dataset.  
 
 ```{r}
-plot<-data.frame(cor=c(gblup_cor,rrblup_cor),method=c(rep("GBLUP",1),rep("RRBLUP",1)))
-plot
-p<-data.frame(cor,method=c(rep("GBLUP",1),rep("RRBLUP",1)))
+
 library(ggplot2)
-ggplot(plot,aes(x=method,y=cor)+
-       geom_boxplot(width=0.5)+
-       labs(title="Prediction accuracy of GBLUP & RRBLUP",x="method",y="accuracy"))
-
-
-cor<-cbind(gblup_cor,rrblup_cor)
-cor
+dat<-rep(c(0.3351928,0.3351630),each=10)
+accuracy2<-data.frame(dat,method=c(rep("GBLUP",10),rep("RRBLUP",10)))
+accuracy2
+ggplot(accuracy2,aes(x=method, y=dat, fill=method))+
+  geom_boxplot(width=0.1,fill="white")+
+  labs(title="Prediction accuracy of GBLUP & RRBLUP",x="method",y="accuracy")+
+  theme_classic()+
+  theme(legend.position = "none")
+```
 ```
