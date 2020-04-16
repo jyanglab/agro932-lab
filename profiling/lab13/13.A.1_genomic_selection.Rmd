@@ -90,10 +90,10 @@ pheno_file <- "https://jyanglab.com/img/data/DATA_nassau_age6_CWAC.csv"
 geno_file <- "https://jyanglab.com/img/data/Snp_Data.csv"
 
 pheno <- read.csv(pheno_file, header=TRUE, stringsAsFactors = FALSE)
-# hist(pheno$Derregressed_BV)
+hist(pheno$Derregressed_BV,xlab = "BV",col = "red")
 geno <- read.csv(geno_file, header=TRUE, stringsAsFactors = FALSE)
 dim(geno)
-# geno[1:10, 1:10]
+geno[1:10, 1:10]
 ```
 
 ---
@@ -104,9 +104,12 @@ dim(geno)
 There are some accessions containing no phenotype. We need to remove these accessions first.
 
 ```{r, eval=FALSE}
+sum(is.na(pheno$Derregressed_BV))
 na.index <-  which(is.na(pheno$Derregressed_BV))
 # length(na.index)
 pheno <- pheno[-na.index, ]
+head(pheno)
+
 # Keep genotypes for these remaining lines
 geno <- geno[geno$Genotype %in% pheno$Genotype, ]
 
@@ -116,7 +119,9 @@ y <- matrix(y, ncol=1)
 
 # markers 
 geno <- geno[,-1] # 861 x 4853
+geno
 geno[geno == -9] <- NA
+geno
 ```
 
 
@@ -215,7 +220,7 @@ Set up mixed model equations (MME) by fitting the model:
   
 - where $\mathbf{u}$ is the intercept, 
 - $\mathbf{Z}$ is the incident matrix of individuals, 
-- $\mathbf{u}$ is the additive marker effect, 
+- $\mathbf{u}$ is the additive marker effect, is the breeding values of the individuals;
 - and $\mathbf{e}$ is the residual. 
 
 Directly take the inverse of LHS to obtain the solutions for GBLUP. Report the estimates of intercept and additive genetic values. Use $\lambda = 1.35$. 
@@ -247,6 +252,7 @@ Fit GBLUP by using the `mixed.solve` function in the [rrBLUP](https://cran.r-pro
 
 ```{r, eval=FALSE, echo=TRUE}
 #install.packages("rrBLUP")
+install.packages("rrBLUP")
 library(rrBLUP)
 fit <- mixed.solve(y = y, K=G)
 # additive genetic variance
@@ -302,6 +308,10 @@ RHS <- rbind( crossprod(ones, y), crossprod(Zs,y) )
 sol2 <- solve(LHS, RHS)
 head(sol2)
 tail(sol2)
+eff<- sol2[-1]
+head(eff)
+plot(1:length(eff),eff,pch=16)
+
 ```
 
 ---
@@ -329,7 +339,7 @@ tail(fit2$u)
 # ratio of variance components 
 fit2$Ve / fit2$Vu
 
-# plot(x=sol2[-1], y=fit2$u)
+# plot(x=sol2[-1], y=fit2$u) or cor(x=sol2[-1], y=fit2$u) to see if the model fit estimated data
 ```
 
 ---

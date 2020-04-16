@@ -1,0 +1,286 @@
+---
+title: "HOMEWORK3"
+author: "FANG WANG"
+date: "April 12, 2020"
+output: NULL
+---
+
+## Normalize the path:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+```
+
+##2.solve the equation
+
+```{r}
+y=matrix(c(3,-6),byrow = TRUE,nrow=2)
+b=matrix(c(5,6,3,-4),byrow = TRUE,nrow = 2)
+x<-solve(b,y)
+x
+```
+
+##3.GBLUP & RR-BLUP
+
+###reading phenotype and genotype data
+```{r}
+pinedata<-read.csv("data/DATA_rootnum_age10_rootnum.csv",header=TRUE,stringsAsFactors = FALSE)
+pinedata
+dim(pinedata)
+hist(pinedata$Derregressed_BV,xlab = "BV",col = "red")
+genotype<-read.csv("data/Snp_Data.csv",header = TRUE,stringsAsFactors = FALSE)
+dim(genotype)
+```
+
+### Remove missing phenotypes 
+
+```{r, eval=FALSE}
+sum(is.na(pinedata$Derregressed_BV))
+na.index <-  which(is.na(pinedata$Derregressed_BV))
+length(na.index)
+pinedata <- pinedata[-na.index, ]
+head(pinedata)
+
+# Keep genotypes for these remaining lines in phenotypes
+genotype <- genotype[genotype$Genotype %in% pinedata$Genotype, ]
+
+# phenotypes 
+y <- pinedata$Derregressed_BV
+y <- matrix(y, ncol=1)
+
+# markers 
+genotype <- genotype[,-1] # 861 x 4853
+dim(genotype)
+genotype[genotype == -9] <- NA
+dim(genotype)  #925 4852
+```
+---
+### SNP quality control
+
+#### Missingrate and MAF OF SNPs
+
+```{r, eval=FALSE, echo=TRUE}
+# missing rate
+missing <- apply(genotype, 2, function(x){sum(is.na(x))/length(x)})
+# minor allele frequency
+maf <- apply(genotype, 2, function(x){
+  frq <- mean(x, na.rm=TRUE)/2
+  return(ifelse(frq > 0.5, 1-frq, frq))
+})
+```
+#### Plot the results of missing rate and MAF
+```{r, eval=FALSE, echo=TRUE}
+hist(missing, breaks=100, col="blue", xlab="SNP Missing rate")
+hist(maf, breaks=100, col="blue", xlab="Minor Allele Freq")
+```
+#### SNP Filter
+
+Removing SNPs with high missing rate (missingness > 0.2) and low MAF (MAF < 0.05)
+
+```{r, eval=FALSE, echo=TRUE}
+idx1 <- which(missing > 0.2) #155
+sum(idx1)
+idx2 <- which(maf < 0.05) #1639
+idx <- unique(c(idx1, idx2)) #1778 SNPs were removed
+genotype2 <- genotype[, -idx] 
+dim(genotype2)  #925 3074 finally used in the further analysis(925 individuals with 3074 SNPs)
+```
+--
+
+### Missing marker imputation
+
+Replace missing marker genotypes with mean values for each genotype. Then store the marker genotypes in a matrix object `Z`. 
+
+```{r, eval=FALSE, echo=TRUE}
+Z <- matrix(0, ncol=ncol(genotype2), nrow=nrow(genotype2))
+for (j in 1:ncol(genotype2)){
+  #cat("j = ", j, '\n')
+  Z[,j] <- ifelse(is.na(genotype2[,j]), mean(genotype2[,j], na.rm=TRUE), genotype2[,j])
+}  #j=3074L
+sum(is.na(Z))
+```
+
+## Genomic relationship
+
+### SNP Matrix standardization
+
+Standardize the genotype matrix to have a mean of zero and variance of one. Save this matrix as `Zs`. 
+
+```{r, eval=FALSE, echo=TRUE}
+Zs <- scale(Z, center = TRUE, scale = TRUE)
+dim(Zs) 
+n <- nrow(Zs)  #925L
+m <- ncol(Zs)  #3074L
+```
+
+### Calcualte genomic relationship
+
+- Compute the second genomic relationship matrix of VanRaden (2008) using the entire markers. 
+- Then add a very small positive constant (e.g., 0.001) to the diagonal elements so that `G` matrix is invertible. 
+
+```{r, eval=FALSE, echo=TRUE}
+# Given matrices x and y as arguments, return a matrix cross-product. This is formally equivalent to (but usually slightly faster than) the call t(x) %*% y (crossprod) or x %*% t(y) (tcrossprod).
+G <- tcrossprod(Zs) / ncol(Zs)
+G <- G + diag(n)*0.001
+```
+###GBLUP using rrBLUP
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("rrBLUP")
+library(rrBLUP)
+fit <- mixed.solve(y = y, K=G)
+# additive genetic variance
+fit$Vu #0.183041
+# residual variance
+fit$Ve #0.7481098
+# intercept 
+fit$beta #0.3209913
+# additive genetic values
+head(fit$u)
+tail(fit$u)
+fit$Vu / (fit$Vu + fit$Ve) #0.196575 (heritability)
+# ratio of variance components 
+lamda1<-fit$Ve / fit$Vu #4.087116 as lamda in next step
+```
+```{r, eval=FALSE, echo=TRUE}
+lambda <- 4.09 # fit$Ve / fit$Vu
+Ginv <- solve(G)
+ones <- matrix(1, ncol=1, nrow=n)
+Z <- diag(n)
+# Given matrices x and y as arguments, return a matrix cross-product. This is formally equivalent to (but usually slightly faster than) the call t(x) %*% y (crossprod) or x %*% t(y) (tcrossprod).
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Z)) 
+LHS2 <- cbind(crossprod(Z, ones), crossprod(Z) +  Ginv*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y), crossprod(Z,y) )
+sol <- solve(LHS, RHS)
+head(sol)
+tail(sol)
+plot(x=sol[-1], y=fit$u)
+```
+
+
+##RR-BLUP
+
+Fit RR-BLUP by using the `mixed.solve` function in the [rrBLUP](https://cran.r-project.org/web/packages/rrBLUP/index.html) R package. 
+
+- Report the estimates of intercept and marker additive genetic effects. 
+- o they agree with the estimates with the manual calculation? 
+- Also, report the ratio of variance components $\lambda = \frac{V_e}{V_A}$. 
+
+```{r, eval=FALSE, echo=TRUE}
+library(rrBLUP)
+fit2 <- mixed.solve(y = y, Z=Zs)
+# marker additive genetic variance
+fit2$Vu
+# residual variance
+fit2$Ve
+# intercept 
+fit2$beta
+# marker additive genetic effects
+head(fit2$u)
+tail(fit2$u)
+# ratio of variance components 
+lamda2<-fit2$Ve / fit2$Vu
+
+# plot(x=sol2[-1], y=fit2$u) or cor(x=sol2[-1], y=fit2$u) to see if the model fit estimated data
+```
+```{r, eval=FALSE, echo=TRUE}
+lambda <- 12566.89 # fit$Ve / fit$Vu
+ones <- matrix(1, ncol=1, nrow=n)
+I <- diag(m)
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Zs)) 
+LHS2 <- cbind(crossprod(Zs, ones), crossprod(Zs) +  I*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y), crossprod(Zs,y) )
+sol2 <- solve(LHS, RHS)
+head(sol2)
+tail(sol2)
+eff<- sol2[-1]
+head(eff)
+plot(1:length(eff),eff,pch=16)
+```
+---
+
+# 10-fold validation
+###divided the 925 individuals into 10 groups, using 9 groups to validate the other 1 group, in this case, using 833 individuals as training set while the other 92 as validating set.
+
+```{r, eval=FALSE, echo=TRUE}
+n.trn <- 833
+n.tst <- 92
+y.trn <- y[1:n.trn]
+y.tst <- y[n.trn+1:n.tst]
+Zs.trn <- Zs[1:n.trn,]
+Zs.tst <- Zs[n.trn+1:n.tst,]
+
+Gtrn <- tcrossprod(Zs.trn) / ncol(Zs.trn)
+Gtrn <- Gtrn + diag(n.trn)*0.001
+Gtst.trn <- tcrossprod(Zs.tst, Zs.trn) / ncol(Zs.tst)
+#Gtrn <- G[1:n.trn, 1:n.trn]
+#Gtst.trn <- G[n.trn+1:n.tst, 1:n.trn]
+```
+
+# 10-fold validation for GBLUP
+
+```{r, eval=FALSE, echo=TRUE}
+lambda <- 4.09 # fit$Ve / fit$Vu
+Ginv.trn <- solve(Gtrn)
+ones <- matrix(1, ncol=1, nrow=n.trn)
+Z <- diag(n.trn)
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Z)) 
+LHS2 <- cbind(crossprod(Z, ones), crossprod(Z) +  Ginv.trn*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y.trn), crossprod(Z,y.trn) )
+sol.trn <- solve(LHS, RHS)
+
+# prediction
+y.hat <- Gtst.trn %*% Ginv.trn %*% matrix(sol.trn[c(2:(n.trn+1))])
+
+plot(y.hat, y[(n.trn+1):n])
+
+gblup<-cbind.data.frame(y.hat, y[(n.trn+1):n])
+gblup
+# correlation of prediction by gblup with origin
+gblup_cor<-cor(y.hat, y[(n.trn+1):n],method = "pearson")
+gblup_cor
+```
+
+---
+
+# 10-fold validation for RR-BLUP
+
+```{r, eval=FALSE, echo=TRUE}
+Zs.trn <- Zs[1:n.trn, ]
+Zs.tst <- Zs[n.trn+1:n.tst, ]
+lambda <- 12566.89 # fit$Ve / fit$Vu
+ones <- matrix(1, ncol=1, nrow=n.trn)
+I <- diag(m)
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Zs.trn)) 
+LHS2 <- cbind(crossprod(Zs.trn, ones), crossprod(Zs.trn) +  I*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y.trn), crossprod(Zs.trn, y.trn) )
+sol.trn <- solve(LHS, RHS)
+sol.trn
+# prediction
+y.hat2 <- Zs.tst %*% matrix(sol.trn[-1])
+
+plot(y.hat2, y[(n.trn+1):n])
+#correlation of prediction by rrblup with origin
+rrblup_cor<-cor(y.hat2, y[(n.trn+1):n])
+rrblup_cor
+```
+
+
+```{r}
+plot<-data.frame(cor=c(gblup_cor,rrblup_cor),method=c(rep("GBLUP",1),rep("RRBLUP",1)))
+plot
+p<-data.frame(cor,method=c(rep("GBLUP",1),rep("RRBLUP",1)))
+library(ggplot2)
+ggplot(plot,aes(x=method,y=cor)+
+       geom_boxplot(width=0.5)+
+       labs(title="Prediction accuracy of GBLUP & RRBLUP",x="method",y="accuracy"))
+
+
+cor<-cbind(gblup_cor,rrblup_cor)
+cor
+```
