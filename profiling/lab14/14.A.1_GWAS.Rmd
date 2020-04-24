@@ -14,6 +14,11 @@ knitr::opts_knit$set(root.dir=normalizePath('../../'))
 ```
 
 
+```{r}
+pheno <- read.delim("data/pheno.txt", header=TRUE)
+dim(pheno)
+```
+
 # GWAS practice using rice data
 
 [Zhao et al., 2011](https://www.nature.com/articles/ncomms1467) Genome-wide association mapping reveals a rich genetic architecture of complex traits in _Oryza sativa_
@@ -280,7 +285,7 @@ V(\mathbf{u}) &= \mathbf{G}V_{g} \\
 \end{align*}
 
 ```{bash, eval=FALSE}
-# To calculate centered relatedness matrix (will take ~ 1 min):
+# To calculate centered relatedness matrix (will take ~ 1 min):kinship matrix calculation
 gemma -bfile binary_sativas413 -gk 1 -o binary_sativas413
 ```
 
@@ -321,7 +326,7 @@ If one has covariates other than the intercept and wants to adjust for those cov
 # cd to largedata/RiceDiversity_44K_Genotypes_PLINK
 pca <- read.table("sativas413.eigenvec", header=TRUE)
 pca[,2] <- 1
-write.table(pca[,2:4], "pc3.txt", sep="\t", row.names=FALSE, quote=FALSE, col.names = FALSE)
+write.table(pca[,2:4], "pc3.txt", sep="\t", row.names=FALSE, quote=FALSE, col.names = FALSE) #pc3.txt is the Q matrix 
 ```
 
 ---

@@ -1,0 +1,204 @@
+---
+title: "Project"
+author: "Fang Wang"
+date: "April 22nd, 2020"
+output: NULL
+---
+
+## Normalize the path:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+```
+
+#Principal Component Analysis
+```{r}
+geno<-read.table("data/GENO_DUP2016.txt", header=TRUE,sep="\t")
+geno[1:10, 1:10]
+geno[geno == 1] <- 2
+geno[geno == 0.5] <- 1
+geno1<-geno[,-1]
+pca1=prcomp(geno1,scale.=TRUE)
+summary(pca1)
+pca1_loading = pca1$x
+pca1_loading = cbind(geno[,1:2], pca1_loading)
+pca1_loading = pca1_loading[,-2]
+names(pca1_loading)[1] = "ID"
+dat=pca1_loading
+PCA = as.matrix(pca1)
+tiff("pca.tiff", width = 4, height = 3, units = 'in', res = 300)
+library(ggplot2)
+ggplot(dat, aes(x = PC1, y = PC2),color="light blue") +
+  geom_point(alpha=0.5,color="blue") +
+  labs(x = "PC1", y = "PC2")+
+  theme_classic()+
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14,face="bold"))
+```
+
+
+#phenotype,two traits(sev and inc),visualize the severity and incidence
+
+```{r}
+pheno <- read.delim("data/dup2016.txt", header=TRUE)
+dim(pheno)
+#write.table(pheno[, -1], "data/dup2016.txt", sep="\t", row.names=FALSE, quote=FALSE, col.names = FALSE)
+pheno1 <- pheno[pheno$ID %in% geno$X.Marker., ]
+dim(pheno1)
+
+library(ggplot2)
+ggplot(pheno1, aes(x=SEV)) + 
+  geom_histogram(aes(y=..density..), bins=50, fill="#999999")+
+  geom_density(alpha=.2, fill="#FF6666") +
+  labs(title="Severity histogram plot",x="SEV", y = "Density")+
+  theme_classic()
+
+ggplot(pheno1, aes(x=INC)) + 
+  geom_histogram(aes(y=..density..), bins=50, fill="#999999")+
+  geom_density(alpha=.2, fill="#FF6666") +
+  labs(title="Incidence histogram plot",x="INC", y = "Density")+
+  theme_classic()
+```
+
+
+# Genotypic data manipulation, calculate MAF,visualize MAF
+
+```{bash, eval=FALSE}
+#!/bin/sh
+#SBATCH --ntasks-per-node=1
+#SBATCH --nodes=1
+#SBATCH --mem=128gb
+#SBATCH --time=01:00:00
+#SBATCH --job-name=dup_2016_plink
+#SBATCH --mail-user=fwang11@huskers.unl.edu
+#SBATCH --mail-type=ALL
+#SBATCH --error=/work/baenziger/fangwang/2020_proj/slurm_err/dup_2016_plink.err
+#SBATCH --output=/work/baenziger/fangwang/2020_proj/slurm_log/dup_2016_plink.out
+
+module load plink/1.90
+
+##Transfer genotypic data(.vcf file) to plink file(output: .ped and .map),excluede the SNPs markers with MAF<0.05
+plink --vcf DUP_2016_SNPs_MAF1p_MaxMisSNPs60p_MaxMisLines80p_MaxHet20p_v1_Imputed_filtered_maf0.05.recode.vcf --maf 0.05 --recode --allow-extra-chr --out DUP2016
+##Make binary file
+plink --file DUP2016 --make-bed --allow-extra-chr --out binary_DUP2016
+##report MAF into .freq file
+plink -bfile binary_DUP2016 --freq --missing --allow-extra-chr --out DUP2016
+##LD decay
+plink -bfile binary_DUP2016 --r2 --ld-window 100 --ld-window-kb 100 --ld-window-r2 0 --allow-extra-chr --out binary_DUP2016
+
+```
+##In convenient, copy the plink files from HCC to local computer by software 'WinScp'. 
+# Visulize MAF
+
+```{r, eval=FALSE}
+install.packages("data.table")
+library("data.table")
+maf <- fread("data/DUP2016.frq", header=TRUE)
+par(mfrow=c(1,2))
+hist(maf$MAF, breaks=50, col="light blue", main="MAF", xlab="Minor Allele Freq")
+abline(v=0.05, lty=2, col="red", lwd=3)
+```
+
+
+
+# Summarize LD decay rate
+
+```{r, eval=FALSE}
+library("data.table")
+
+df <- fread("data/binary_DUP2016.ld", data.table=FALSE)
+BINSIZE = 100
+df$dist <- df$BP_B -df$BP_A
+df$bin <- round(df$dist/BINSIZE, 0)
+
+library(plyr)
+
+df <- ddply(df, .(bin), summarise,
+      meanr2 = mean(R2))
+
+write.table(df3, "data/ld_in_100bp_bin.csv", sep=",", row.names=FALSE, quote=FALSE)
+
+```
+
+# Plot LD
+
+```{r, eval=FALSE}
+ld <- read.csv("data/ld_in_100bp_bin.csv")
+
+plot(ld$bin*100, ld$meanr2, xlab="Physical distance (bp)", ylab="R2", main="LD decay rate in wheat")
+abline(h=0.3, col="red")
+```
+
+
+
+# rrBLUP package for GWAS
+
+### PLINK format
+
+```{r, eval=FALSE}
+install.packages("BGLR")
+library("BGLR")
+ped <- read_ped("data/DUP2016.ped")
+ped[1:10]
+p=ped$p
+n=ped$n
+out=ped$x
+#Recode snp to 0,1,2 format using allele 1
+# 0 --> 0
+# 1 --> 1
+# 3 --> 2
+out[out==3]=2
+Zmatrix <- matrix(out, nrow=p, ncol=n, byrow=TRUE)
+Zmatrix <- t(Zmatrix) 
+dim(Zmatrix)
+Zmatrix[1:10,1:10]
+```
+
+# rrBLUP package for GWAS
+
+### Read fam file
+
+```{r, eval=FALSE}
+# accession ID
+fam_DUP2016 <- read.table("data/binary_DUP2016.fam", header = FALSE, stringsAsFactors = FALSE)  
+head(fam_DUP2016)
+rownames(Zmatrix) <- paste0("",fam_DUP2016$V1) 
+Zmatrix[1:10,1:10]
+```
+
+### SNP imputation
+
+```{r, eval=FALSE}
+for (j in 1:ncol(Zmatrix)){
+  Zmatrix[,j] <- ifelse(is.na(Zmatrix[,j]), mean(Zmatrix[,j], na.rm=TRUE), Zmatrix[,j])
+}
+Zmatrix[1:10,1:10]
+tz<-t(Zmatrix-1)
+head(tz)
+colname<-paste0("",1:223)
+colname
+colnames(tz)<-colname
+head(tz)
+```
+
+---
+# rrBLUP package for GWAS
+
+```{r, eval=FALSE}
+# install.packages("rrBLUP")
+library(rrBLUP)
+
+map_DUP2016 <- read.table("data/dup2016.map", header = FALSE, stringsAsFactors = FALSE)
+geno_DUP2016_1<-data.frame(marker=map[,2], chrom=map[,1], pos=map[,4], tz, check.names = FALSE)
+
+mypheno_SEV_1 <- data.frame(NSFTV_ID=pheno1$NSFTVID, y=pheno1$SEV) 
+head(mypheno_SEV_1)
+pheno1$NSFTVID<- paste0("", 1:223)
+
+res2 <- GWAS(mypheno_SEV_1, geno_DUP2016_1, n.PC=0, min.MAF=0.05, P3D=TRUE, plot=TRUE)
+```
+
+
+
+
